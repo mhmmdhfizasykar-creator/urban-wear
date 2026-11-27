@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; object-src 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>URBAN WEAR — Dark Streetwear &amp; Modern Apparel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --uw-bg: #151515;
+      --uw-surface: #1f1f1f;
+      --uw-surface-elevated: #2a2a2a;
+      --uw-text: #f2f0eb;
+      --uw-muted: #a6a39b;
+      --uw-accent: #ff5a1f;
+      --uw-accent-hover: #e44b14;
+      --uw-border: #2e2e2e;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--uw-bg);
+      color: var(--uw-text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Kolase latar belakang foto gaya American Style tetap (fixed) di balik seluruh halaman */
+    .american-bg-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+      background-color: #151515;
+    }
+
+    .american-bg-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      transform: scale(1.03);
+    }
+
+    @media (min-width: 768px) {
+      .american-bg-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .american-bg-tile {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: saturate(0.88) contrast(1.06) brightness(0.68);
+    }
+
+    /* Lapisan gelap transparan agar tipografi off-white & aksen orange tetap terbaca tajam */
+    .american-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 75% 18%, rgba(255, 90, 31, 0.16), transparent 48%),
+        linear-gradient(180deg, rgba(21, 21, 21, 0.72) 0%, rgba(21, 21, 21, 0.80) 50%, rgba(21, 21, 21, 0.88) 100%);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .bg-uw-base {
+      background-color: var(--uw-bg);
+    }
+
+    .bg-uw-surface {
+      background-color: var(--uw-surface);
+    }
+
+    .bg-uw-elevated {
+      background-color: var(--uw-surface-elevated);
+    }
+
+    .bg-uw-accent {
+      background-color: var(--uw-accent);
+    }
+
+    .hover-bg-uw-accent:hover {
+      background-color: var(--uw-accent);
+    }
+
+    .hover-bg-uw-accent-dark:hover {
+      background-color: var(--uw-accent-hover);
+    }
+
+    .hover-bg-uw-elevated:hover {
+      background-color: var(--uw-surface-elevated);
+    }
+
+    .text-uw-base {
+      color: var(--uw-bg);
+    }
+
+    .text-uw-main {
+      color: var(--uw-text);
+    }
+
+    .text-uw-muted {
+      color: var(--uw-muted);
+    }
+
+    .text-uw-accent {
+      color: var(--uw-accent);
+    }
+
+    .hover-text-uw-base:hover {
+      color: var(--uw-bg);
+    }
+
+    .hover-text-uw-accent:hover {
+      color: var(--uw-accent);
+    }
+
+    .border-uw {
+      border-color: var(--uw-border);
+    }
+
+    .border-uw-accent {
+      border-color: var(--uw-accent);
+    }
+
+    .hover-border-uw-accent:hover {
+      border-color: var(--uw-accent);
+    }
+
+    .focus-border-uw-accent:focus {
+      border-color: var(--uw-accent);
+    }
+
+    .hero-surface {
+      background: radial-gradient(circle at 80% 20%, rgba(255, 90, 31, 0.24), transparent 55%),
+                  linear-gradient(155deg, #252525 0%, #151515 100%);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #151515;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2e2e2e;
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff5a1f;
+    }
+  </style>
+</head>
+<body class="bg-transparent text-uw-main antialiased">
+
+  <!-- KOLASE FOTO AMERICAN STYLE + DARK OVERLAY LATAR BELAKANG HALAMAN -->
+  <div id="american-style-bg" aria-hidden="true" class="american-bg-backdrop">
+    <div class="american-bg-grid">
+      <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+      <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+      <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+      <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+      <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80" alt="" class="american-bg-tile">
+    </div>
+  </div>
+  <div aria-hidden="true" class="american-bg-overlay"></div>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-uw-accent text-uw-base text-xs sm:text-sm font-bold tracking-wide py-2 px-4 text-center">
+    PENGIRIMAN SELURUH INDONESIA — VOUCHER DISKON 15%: <span class="underline font-extrabold">URBAN26</span>
+  </div>
+
+  <!-- HEADER STICKY RESPONSIF -->
+  <header class="sticky top-0 z-40 bg-uw-base/95 backdrop-blur-md border-b border-uw">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+
+        <!-- Kiri: Menu Mobile & Logo -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" id="open-mobile-menu-btn" aria-label="Buka menu navigasi" class="lg:hidden p-2.5 rounded-xl bg-uw-surface hover-bg-uw-elevated border border-uw text-uw-main transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+
+          <a href="#beranda" id="brand-logo" class="flex items-center gap-2.5 group focus:outline-none">
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-uw-accent flex items-center justify-center text-uw-base font-display font-extrabold text-lg sm:text-xl tracking-tighter transition-transform group-hover:scale-105">
+              UW
+            </span>
+            <span class="flex flex-col">
+              <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-uw-main leading-none">URBAN WEAR</span>
+              <span class="text-[10px] tracking-[0.2em] text-uw-muted uppercase font-semibold mt-0.5">Dark Streetwear</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Tengah: Navigasi Kategori Utama -->
+        <nav aria-label="Kategori Koleksi" class="hidden lg:flex items-center gap-1 bg-uw-surface p-1.5 rounded-2xl border border-uw">
+          <button type="button" data-nav-cat="Semua" class="nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all bg-uw-accent text-uw-base">Semua</button>
+          <button type="button" data-nav-cat="Outer & Jacket" class="nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all text-uw-main hover-text-uw-accent">Outer &amp; Jacket</button>
+          <button type="button" data-nav-cat="Tops & Tees" class="nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all text-uw-main hover-text-uw-accent">Tops &amp; Tees</button>
+          <button type="button" data-nav-cat="Bottoms" class="nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all text-uw-main hover-text-uw-accent">Bottoms</button>
+          <button type="button" data-nav-cat="Accessories" class="nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all text-uw-main hover-text-uw-accent">Accessories</button>
+        </nav>
+
+        <!-- Kanan: Pencarian Real-Time, Wishlist & Keranjang -->
+        <div class="flex items-center gap-2 sm:gap-2.5 flex-1 lg:flex-initial justify-end">
+          <div class="relative hidden sm:block w-full max-w-[200px]">
+            <input
+              type="search"
+              id="header-search"
+              placeholder="Cari artikel..."
+              aria-label="Cari artikel streetwear"
+              maxlength="60"
+              class="w-full bg-uw-surface border border-uw focus-border-uw-accent text-uw-main placeholder-uw-muted text-xs rounded-xl pl-9 pr-3 py-2.5 focus:outline-none transition-colors"
+            >
+            <svg class="w-4 h-4 text-uw-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+
+          <button type="button" id="open-sizechart-btn" aria-label="Panduan Ukuran" class="hidden md:inline-flex items-center px-3 py-2.5 rounded-xl bg-uw-surface hover-bg-uw-elevated border border-uw text-uw-main hover-text-uw-accent text-xs font-bold transition-colors shrink-0">
+            Size Chart
+          </button>
+
+          <button type="button" id="open-orders-btn" aria-label="Riwayat Pesanan" class="relative p-2.5 sm:p-3 rounded-xl bg-uw-surface hover-bg-uw-elevated border border-uw text-uw-main hover-text-uw-accent transition-colors shrink-0" title="Riwayat Pesanan">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+            <span id="orders-badge" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-uw-accent text-uw-base text-[11px] font-extrabold flex items-center justify-center">0</span>
+          </button>
+
+          <button type="button" id="open-wishlist-btn" aria-label="Buka Wishlist" class="relative p-2.5 sm:p-3 rounded-xl bg-uw-surface hover-bg-uw-elevated border border-uw text-uw-main transition-colors shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+            <span id="wishlist-badge" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#F2F0EB] text-[#151515] text-[11px] font-extrabold flex items-center justify-center">0</span>
+          </button>
+
+          <button type="button" id="open-cart-btn" aria-label="Buka Keranjang Belanja" class="relative p-2.5 sm:p-3 rounded-xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-bold transition-colors shrink-0 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+            <span class="hidden sm:inline text-xs font-extrabold uppercase tracking-wider">Keranjang</span>
+            <span id="cart-badge" class="min-w-[20px] h-5 px-1.5 rounded-full bg-[#151515] text-[#F2F0EB] text-[11px] font-extrabold flex items-center justify-center">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="beranda">
+    <!-- HERO SECTION EDITORIAL STREETWEAR -->
+    <section class="relative overflow-hidden border-b border-uw">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-uw-surface border border-uw">
+              <span class="w-2 h-2 rounded-full bg-uw-accent"></span>
+              <span class="text-xs font-display font-bold tracking-widest text-uw-main uppercase">AMERICAN HERITAGE &amp; MODERN STREET</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-uw-main leading-[1.05]">
+              AMERICAN STREET <span class="text-uw-accent">ARCHIVE</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-uw-main/80 max-w-xl leading-relaxed">
+              Kurasi jaket varsity wol, workwear canvas, denim baggy, hingga aksesori ikonik Amerika dengan detail bahan presisi dan checkout WhatsApp langsung.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+              <a href="#katalog" id="hero-shop-now-btn" class="px-7 py-4 rounded-2xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-sm sm:text-base tracking-wide uppercase transition-all">
+                Shop Now
+              </a>
+              <button type="button" id="open-lookbook-btn" class="px-7 py-4 rounded-2xl bg-uw-surface hover-bg-uw-elevated text-uw-main border border-uw hover-border-uw-accent font-display font-bold text-sm sm:text-base tracking-wide uppercase transition-all">
+                Lihat Lookbook
+              </button>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-uw max-w-lg">
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">16<span class="text-uw-accent">+</span></p>
+                <p class="text-xs text-uw-muted mt-0.5">Artikel American Style</p>
+              </div>
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">04<span class="text-uw-accent">CAT</span></p>
+                <p class="text-xs text-uw-muted mt-0.5">Outer, Tops, Bottoms, Acc</p>
+              </div>
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">15<span class="text-uw-accent">%</span></p>
+                <p class="text-xs text-uw-muted mt-0.5">URBAN26 &amp; AMERIKA10</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden hero-surface border border-uw aspect-[4/5] shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80"
+                alt="Editorial Urban Wear American Jacket"
+                class="w-full h-full object-cover object-center"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#151515]/95 backdrop-blur-md border border-uw flex items-center justify-between gap-3">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-uw-accent">FEATURED DROP</span>
+                  <p class="font-display font-bold text-sm sm:text-base text-uw-main">Varsity Letterman Jacket</p>
+                  <p class="text-xs text-uw-muted">S • M • L • XL • Wool &amp; Chenille</p>
+                </div>
+                <button type="button" id="hero-featured-btn" class="px-3.5 py-2 rounded-xl bg-[#F2F0EB] hover-bg-uw-accent text-uw-base font-display font-extrabold text-xs uppercase transition-colors shrink-0">
+                  Rp 749.000
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER PROMO EKSKLUSIF -->
+    <section id="promo-banner" class="py-8 sm:py-10 border-b border-uw">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-uw-surface border border-uw-accent p-6 sm:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="space-y-1.5 max-w-2xl">
+            <span class="inline-block px-3 py-1 rounded-lg bg-uw-base border border-uw-accent text-uw-accent text-xs font-bold uppercase tracking-wider">
+              PROMO EKSKLUSIF MEMBER
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-uw-main">
+              DISKON HINGGA 15% + KALKULATOR ONGKIR INSTAN
+            </h2>
+            <p class="text-sm text-uw-main/75">
+              Gunakan kode <span class="text-uw-accent font-bold">URBAN26</span> (potongan 15%) atau <span class="text-uw-accent font-bold">AMERIKA10</span> (potongan 10%) di drawer keranjang belanja sebelum checkout via WhatsApp.
+            </p>
+          </div>
+
+          <div class="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-uw-base p-3 rounded-2xl border border-uw">
+            <div class="px-4 py-1.5 text-center sm:text-left">
+              <span class="block text-[10px] uppercase tracking-widest text-uw-muted">KODE VOUCHER</span>
+              <span class="font-display font-extrabold text-xl tracking-widest text-uw-accent">URBAN26</span>
+            </div>
+            <button type="button" id="copy-promo-btn" class="px-5 py-3.5 rounded-xl bg-[#F2F0EB] hover-bg-uw-accent text-uw-base font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              <span>Salin Kode</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATALOG PRODUK INTERAKTIF -->
+    <section id="katalog" class="py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-uw-accent">KATALOG AMERICAN STREETWEAR</span>
+            <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-uw-main mt-1">KOLEKSI LENGKAP 16 ARTIKEL</h2>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div class="relative flex-1 sm:w-64">
+              <input
+                type="search"
+                id="catalog-search"
+                placeholder="Ketik nama, bahan, atau kategori..."
+                aria-label="Pencarian katalog real-time"
+                maxlength="60"
+                class="w-full bg-uw-surface border border-uw focus-border-uw-accent text-uw-main placeholder-uw-muted text-xs rounded-xl pl-9 pr-3 py-3 focus:outline-none transition-colors"
+              >
+              <svg class="w-4 h-4 text-uw-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+
+            <select id="sort-select" aria-label="Urutkan produk" class="bg-uw-surface border border-uw focus-border-uw-accent text-uw-main text-xs font-semibold rounded-xl px-4 py-3 focus:outline-none cursor-pointer">
+              <option value="featured">Urutkan: Terbaru</option>
+              <option value="bestseller">Terlaris</option>
+              <option value="price-asc">Harga Terendah</option>
+              <option value="price-desc">Harga Tertinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tab Filter Kategori + Quick Filter Pills -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex items-center gap-2 overflow-x-auto pb-1">
+            <button type="button" data-filter="Semua" class="filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-uw-accent text-uw-base transition-all">Semua</button>
+            <button type="button" data-filter="Outer & Jacket" class="filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-uw-surface text-uw-main border border-uw hover-border-uw-accent transition-all">Outer &amp; Jacket</button>
+            <button type="button" data-filter="Tops & Tees" class="filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-uw-surface text-uw-main border border-uw hover-border-uw-accent transition-all">Tops &amp; Tees</button>
+            <button type="button" data-filter="Bottoms" class="filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-uw-surface text-uw-main border border-uw hover-border-uw-accent transition-all">Bottoms</button>
+            <button type="button" data-filter="Accessories" class="filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-uw-surface text-uw-main border border-uw hover-border-uw-accent transition-all">Accessories</button>
+          </div>
+
+          <div class="flex items-center gap-2 overflow-x-auto pb-1">
+            <button type="button" id="quick-bestseller-btn" class="shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold bg-uw-surface hover-bg-uw-elevated text-uw-main border border-uw transition-colors">
+              Filter Terlaris
+            </button>
+            <button type="button" id="quick-under300-btn" class="shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold bg-uw-surface hover-bg-uw-elevated text-uw-main border border-uw transition-colors">
+              Di Bawah Rp 300rb
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-uw-muted border-b border-uw pb-4">
+          <p id="catalog-count-info">Menampilkan 16 artikel</p>
+          <button type="button" id="reset-filter-btn" class="hidden text-uw-accent hover:underline font-bold">Reset Filter</button>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        <div id="empty-catalog-state" class="hidden py-16 text-center bg-uw-surface rounded-3xl border border-uw px-4">
+          <p class="font-display font-bold text-xl text-uw-main">Artikel tidak ditemukan</p>
+          <p class="text-sm text-uw-muted mt-2 max-w-md mx-auto">Coba kata kunci lain atau pilih kategori berbeda.</p>
+          <button type="button" id="empty-reset-btn" class="mt-5 px-6 py-3 rounded-xl bg-uw-accent text-uw-base font-display font-extrabold text-xs uppercase tracking-wider">Tampilkan Semua</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-uw-surface border-t border-uw py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-uw">
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-uw-accent flex items-center justify-center text-uw-base font-display font-extrabold text-base">UW</span>
+            <span class="font-display font-extrabold text-lg text-uw-main">URBAN WEAR</span>
+          </div>
+          <p class="text-sm text-uw-muted max-w-md leading-relaxed">
+            Destinasi American Streetwear siap pakai dengan kurasi 16 artikel outer, atasan, bawahan, dan aksesori fungsional untuk gaya harian.
+          </p>
+        </div>
+
+        <div class="space-y-2.5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-uw-main">Kategori</h3>
+          <ul class="space-y-2 text-sm text-uw-muted">
+            <li><button type="button" data-footer-cat="Outer & Jacket" class="footer-cat-btn hover-text-uw-accent transition-colors">Outer &amp; Jacket</button></li>
+            <li><button type="button" data-footer-cat="Tops & Tees" class="footer-cat-btn hover-text-uw-accent transition-colors">Tops &amp; Tees</button></li>
+            <li><button type="button" data-footer-cat="Bottoms" class="footer-cat-btn hover-text-uw-accent transition-colors">Bottoms</button></li>
+            <li><button type="button" data-footer-cat="Accessories" class="footer-cat-btn hover-text-uw-accent transition-colors">Accessories</button></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2.5">
+          <h3 class="font-display font-bold text-sm uppercase tracking-wider text-uw-main">Navigasi Cepat</h3>
+          <ul class="space-y-2 text-sm text-uw-muted">
+            <li><button type="button" id="footer-lookbook-btn" class="hover-text-uw-accent transition-colors">Lookbook Editorial</button></li>
+            <li><button type="button" id="footer-sizechart-btn" class="hover-text-uw-accent transition-colors">Panduan Ukuran (Size Chart)</button></li>
+            <li><button type="button" id="footer-orders-btn" class="hover-text-uw-accent transition-colors">Riwayat Pesanan</button></li>
+            <li><button type="button" id="footer-wishlist-btn" class="hover-text-uw-accent transition-colors">Wishlist Saya</button></li>
+            <li><button type="button" id="footer-cart-btn" class="hover-text-uw-accent transition-colors">Keranjang Belanja</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-uw-muted">
+        <p>&copy; 2026 Urban Wear. Seluruh hak cipta dilindungi.</p>
+        <p>Voucher Aktif: <span class="text-uw-accent font-bold">URBAN26</span> &bull; <span class="text-uw-accent font-bold">AMERIKA10</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRAWER MENU MOBILE -->
+  <div id="mobile-menu-backdrop" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-start">
+    <aside aria-label="Menu Mobile" class="w-72 max-w-[85vw] bg-uw-base border-r border-uw h-full flex flex-col justify-between p-5">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between border-b border-uw pb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-lg bg-uw-accent flex items-center justify-center text-uw-base font-display font-extrabold text-sm">UW</span>
+            <span class="font-display font-extrabold text-base text-uw-main">URBAN WEAR</span>
+          </div>
+          <button type="button" id="close-mobile-menu-btn" aria-label="Tutup menu mobile" class="p-2 rounded-xl bg-uw-surface text-uw-main">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2">
+          <button type="button" data-mobile-cat="Semua" class="mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold bg-uw-accent text-uw-base">Semua</button>
+          <button type="button" data-mobile-cat="Outer & Jacket" class="mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold bg-uw-surface text-uw-main">Outer &amp; Jacket</button>
+          <button type="button" data-mobile-cat="Tops & Tees" class="mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold bg-uw-surface text-uw-main">Tops &amp; Tees</button>
+          <button type="button" data-mobile-cat="Bottoms" class="mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold bg-uw-surface text-uw-main">Bottoms</button>
+          <button type="button" data-mobile-cat="Accessories" class="mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold bg-uw-surface text-uw-main">Accessories</button>
+        </nav>
+
+        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-uw">
+          <button type="button" id="mobile-open-sizechart-btn" class="px-3 py-2.5 rounded-xl bg-uw-surface border border-uw text-uw-main text-xs font-bold">Size Chart</button>
+          <button type="button" id="mobile-open-orders-btn" class="px-3 py-2.5 rounded-xl bg-uw-surface border border-uw text-uw-main text-xs font-bold">Pesanan</button>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-uw-surface border border-uw space-y-1">
+        <p class="text-xs font-bold text-uw-accent">VOUCHER: URBAN26 &amp; AMERIKA10</p>
+        <p class="text-[11px] text-uw-muted">Diskon 15% atau 10% dihitung otomatis di drawer keranjang.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- MODAL LOOKBOOK -->
+  <div id="lookbook-modal" role="dialog" aria-modal="true" aria-labelledby="lookbook-heading" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="relative w-full max-w-4xl bg-uw-surface border border-uw rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
+      <div class="p-5 sm:p-6 border-b border-uw flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-uw-accent">AMERICAN STREET LOOKBOOK</span>
+          <h3 id="lookbook-heading" class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">URBAN WEAR EDITORIAL</h3>
+        </div>
+        <button type="button" id="close-lookbook-btn" aria-label="Tutup lookbook" class="w-10 h-10 rounded-full bg-uw-base hover-bg-uw-accent text-uw-main hover-text-uw-base flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-uw-base rounded-2xl overflow-hidden border border-uw flex flex-col justify-between">
+          <div>
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" alt="Look 01 Varsity & Workwear" class="w-full h-52 object-cover">
+            <div class="p-4 space-y-1">
+              <span class="text-[11px] font-bold text-uw-accent">LOOK 01 &bull; VARSITY &amp; DENIM</span>
+              <p class="font-display font-bold text-sm text-uw-main">Varsity Letterman + Baggy Jeans</p>
+              <p class="text-xs text-uw-muted">Nuansa kampus Amerika klasik berpadu potongan wide-leg modern.</p>
+            </div>
+          </div>
+          <div class="px-4 pb-4">
+            <button type="button" data-lookbook-query="Varsity" class="lookbook-filter-btn w-full py-2.5 rounded-xl bg-uw-surface hover-bg-uw-accent text-uw-main hover-text-uw-base border border-uw text-xs font-display font-extrabold uppercase transition-colors">
+              Cari Item Terkait
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-uw-base rounded-2xl overflow-hidden border border-uw flex flex-col justify-between">
+          <div>
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Look 02 Detroit Canvas & Chino" class="w-full h-52 object-cover">
+            <div class="p-4 space-y-1">
+              <span class="text-[11px] font-bold text-uw-accent">LOOK 02 &bull; INDUSTRIAL WORK</span>
+              <p class="font-display font-bold text-sm text-uw-main">Detroit Canvas + Double-Knee Chino</p>
+              <p class="text-xs text-uw-muted">Ketangguhan kanvas berat dan panel lutut ganda untuk aktivitas harian.</p>
+            </div>
+          </div>
+          <div class="px-4 pb-4">
+            <button type="button" data-lookbook-query="Canvas" class="lookbook-filter-btn w-full py-2.5 rounded-xl bg-uw-surface hover-bg-uw-accent text-uw-main hover-text-uw-base border border-uw text-xs font-display font-extrabold uppercase transition-colors">
+              Cari Item Terkait
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-uw-base rounded-2xl overflow-hidden border border-uw flex flex-col justify-between">
+          <div>
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80" alt="Look 03 Acid-Wash Hoodie & Snapback" class="w-full h-52 object-cover">
+            <div class="p-4 space-y-1">
+              <span class="text-[11px] font-bold text-uw-accent">LOOK 03 &bull; WEST COAST STREET</span>
+              <p class="font-display font-bold text-sm text-uw-main">Acid-Wash Hoodie + Wool Snapback</p>
+              <p class="text-xs text-uw-muted">Washing vintage berkarakter dengan topi snapback terstruktur.</p>
+            </div>
+          </div>
+          <div class="px-4 pb-4">
+            <button type="button" data-lookbook-query="Hoodie" class="lookbook-filter-btn w-full py-2.5 rounded-xl bg-uw-surface hover-bg-uw-accent text-uw-main hover-text-uw-base border border-uw text-xs font-display font-extrabold uppercase transition-colors">
+              Cari Item Terkait
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PANDUAN UKURAN (SIZE CHART) -->
+  <div id="sizechart-modal" role="dialog" aria-modal="true" aria-labelledby="sizechart-heading" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl bg-uw-surface border border-uw rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
+      <div class="p-5 sm:p-6 border-b border-uw flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-uw-accent">PANDUAN UKURAN RESMI</span>
+          <h3 id="sizechart-heading" class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">AMERICAN FIT SIZE CHART (CM)</h3>
+        </div>
+        <button type="button" id="close-sizechart-btn" aria-label="Tutup panduan ukuran" class="w-10 h-10 rounded-full bg-uw-base hover-bg-uw-accent text-uw-main hover-text-uw-base flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-5 text-xs">
+        <div class="space-y-2">
+          <h4 class="font-display font-bold text-sm text-uw-accent uppercase">Tops, Tees, Hoodie &amp; Jackets</h4>
+          <div class="overflow-x-auto rounded-2xl border border-uw">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-uw-base text-uw-main border-b border-uw">
+                  <th class="p-3">Ukuran</th>
+                  <th class="p-3">Lebar Dada</th>
+                  <th class="p-3">Panjang Badan</th>
+                  <th class="p-3">Estimasi Tinggi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#2E2E2E] text-uw-muted">
+                <tr><td class="p-3 font-bold text-uw-main">S</td><td class="p-3">54 cm</td><td class="p-3">68 cm</td><td class="p-3">160 - 168 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">M</td><td class="p-3">57 cm</td><td class="p-3">71 cm</td><td class="p-3">168 - 175 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">L</td><td class="p-3">60 cm</td><td class="p-3">74 cm</td><td class="p-3">175 - 182 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">XL</td><td class="p-3">63 cm</td><td class="p-3">77 cm</td><td class="p-3">182 - 190 cm</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="font-display font-bold text-sm text-uw-accent uppercase">Bottoms (Jeans, Chino, Cargo &amp; Sweatshorts)</h4>
+          <div class="overflow-x-auto rounded-2xl border border-uw">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-uw-base text-uw-main border-b border-uw">
+                  <th class="p-3">Ukuran</th>
+                  <th class="p-3">Lingkar Pinggang</th>
+                  <th class="p-3">Panjang Celana</th>
+                  <th class="p-3">Panjang Sweatshorts</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#2E2E2E] text-uw-muted">
+                <tr><td class="p-3 font-bold text-uw-main">S</td><td class="p-3">74 - 78 cm</td><td class="p-3">100 cm</td><td class="p-3">45 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">M</td><td class="p-3">79 - 84 cm</td><td class="p-3">102 cm</td><td class="p-3">47 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">L</td><td class="p-3">85 - 90 cm</td><td class="p-3">104 cm</td><td class="p-3">49 cm</td></tr>
+                <tr><td class="p-3 font-bold text-uw-main">XL</td><td class="p-3">91 - 96 cm</td><td class="p-3">106 cm</td><td class="p-3">51 cm</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL RIWAYAT PESANAN (LOCALSTORAGE) -->
+  <div id="orders-modal" role="dialog" aria-modal="true" aria-labelledby="orders-heading" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl bg-uw-surface border border-uw rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
+      <div class="p-5 sm:p-6 border-b border-uw flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-uw-accent">ARSIP TRANSAKSI PERANGKAT</span>
+          <h3 id="orders-heading" class="font-display font-extrabold text-xl sm:text-2xl text-uw-main">RIWAYAT PESANAN SAYA</h3>
+        </div>
+        <button type="button" id="close-orders-btn" aria-label="Tutup riwayat pesanan" class="w-10 h-10 rounded-full bg-uw-base hover-bg-uw-accent text-uw-main hover-text-uw-base flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-3">
+        <div id="orders-list-container" class="space-y-3"></div>
+        <div id="empty-orders-state" class="hidden py-12 text-center space-y-2">
+          <p class="font-display font-bold text-base text-uw-main">Belum ada riwayat pesanan</p>
+          <p class="text-xs text-uw-muted max-w-xs mx-auto">Pesanan yang Anda kirim melalui Checkout WhatsApp akan tersimpan otomatis di sini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL PRODUK -->
+  <div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="relative w-full max-w-4xl bg-uw-surface border border-uw rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col md:flex-row">
+
+      <button type="button" id="close-product-modal" aria-label="Tutup detail produk" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-uw-base hover-bg-uw-accent text-uw-main hover-text-uw-base flex items-center justify-center transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <div class="md:w-5/12 bg-uw-base relative aspect-square md:aspect-auto">
+        <img id="modal-product-img" src="" alt="" class="w-full h-full object-cover">
+        <span id="modal-product-badge" class="hidden absolute top-4 left-4 px-3 py-1 rounded-lg bg-uw-accent text-uw-base font-display font-extrabold text-xs uppercase"></span>
+      </div>
+
+      <div class="md:w-7/12 p-6 sm:p-7 overflow-y-auto space-y-4 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span id="modal-product-category" class="text-xs font-bold uppercase tracking-widest text-uw-accent"></span>
+              <span id="modal-product-meta" class="text-[11px] text-uw-muted font-semibold"></span>
+            </div>
+            <h3 id="modal-product-title" class="font-display font-extrabold text-2xl text-uw-main mt-1"></h3>
+            <p id="modal-product-price" class="font-display font-extrabold text-xl text-uw-main mt-1.5"></p>
+          </div>
+
+          <p id="modal-product-desc" class="text-xs sm:text-sm text-uw-main/80 leading-relaxed"></p>
+
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Warna: <span id="selected-color-label" class="text-uw-main"></span></label>
+            <div id="modal-color-options" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Ukuran: <span id="selected-size-label" class="text-uw-main"></span></label>
+            <div id="modal-size-options" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Kuantitas <span id="modal-stock-label" class="text-uw-accent ml-1"></span></label>
+            <div class="inline-flex items-center bg-uw-base rounded-xl border border-uw">
+              <button type="button" id="modal-qty-minus" aria-label="Kurangi kuantitas" class="w-10 h-10 flex items-center justify-center text-uw-main hover-text-uw-accent font-bold text-base">-</button>
+              <span id="modal-qty-value" class="px-4 text-sm font-display font-extrabold text-uw-main">1</span>
+              <button type="button" id="modal-qty-plus" aria-label="Tambah kuantitas" class="w-10 h-10 flex items-center justify-center text-uw-main hover-text-uw-accent font-bold text-base">+</button>
+            </div>
+          </div>
+
+          <!-- Tab Informasi Bahan, Ukuran & Perawatan -->
+          <div class="pt-2 border-t border-uw space-y-2.5">
+            <div class="flex items-center gap-2">
+              <button type="button" data-info-tab="fabric" class="detail-info-tab px-3 py-1.5 rounded-lg text-[11px] font-bold bg-[#FF5A1F] text-[#151515]">Spesifikasi Bahan</button>
+              <button type="button" data-info-tab="fit" class="detail-info-tab px-3 py-1.5 rounded-lg text-[11px] font-bold bg-uw-base text-uw-main border border-uw">Panduan Ukuran</button>
+              <button type="button" data-info-tab="care" class="detail-info-tab px-3 py-1.5 rounded-lg text-[11px] font-bold bg-uw-base text-uw-main border border-uw">Perawatan</button>
+            </div>
+            <p id="modal-info-content" class="text-xs text-uw-muted bg-uw-base p-3 rounded-xl border border-uw leading-relaxed"></p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-4 border-t border-uw">
+          <button type="button" id="modal-add-to-cart" class="flex-1 py-3.5 px-5 rounded-2xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-colors">
+            Tambah ke Keranjang
+          </button>
+          <button type="button" id="modal-toggle-wishlist" aria-label="Simpan ke Wishlist" class="p-3.5 rounded-2xl bg-uw-base hover-bg-uw-elevated border border-uw text-uw-main transition-colors">
+            <svg id="modal-wishlist-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DRAWER KERANJANG BELANJA -->
+  <div id="cart-drawer-backdrop" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+    <aside aria-label="Keranjang Belanja" class="w-full max-w-md bg-uw-base border-l border-uw h-full flex flex-col shadow-2xl">
+
+      <div class="p-5 border-b border-uw flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <h3 class="font-display font-extrabold text-lg text-uw-main uppercase">Keranjang Belanja</h3>
+          <span id="drawer-cart-count" class="px-2.5 py-0.5 rounded-full bg-uw-accent text-uw-base font-extrabold text-xs">0</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="clear-cart-btn" class="hidden px-2.5 py-1.5 rounded-lg bg-uw-surface hover:text-red-400 text-[11px] font-bold text-uw-muted border border-uw">
+            Kosongkan
+          </button>
+          <button type="button" id="close-cart-btn" aria-label="Tutup keranjang" class="p-2 rounded-xl bg-uw-surface hover-bg-uw-elevated text-uw-main">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5 space-y-5">
+        <div id="cart-items-container" class="space-y-3"></div>
+
+        <div id="empty-cart-state" class="py-14 text-center space-y-3">
+          <p class="font-display font-bold text-base text-uw-main">Keranjang masih kosong</p>
+          <p class="text-xs text-uw-muted max-w-xs mx-auto">Pilih produk American Streetwear favorit Anda untuk mulai berbelanja.</p>
+        </div>
+
+        <div id="cart-shipping-box" class="hidden space-y-2 pt-4 border-t border-uw">
+          <label for="cart-shipping-select" class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Metode Pengiriman</label>
+          <select id="cart-shipping-select" class="w-full bg-uw-surface border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main font-semibold focus:outline-none">
+            <option value="regular">Reguler (2-4 Hari) — Rp 18.000</option>
+            <option value="express">Express Next-Day (1-2 Hari) — Rp 35.000</option>
+            <option value="pickup">Ambil di Store Urban Wear — Gratis (Rp 0)</option>
+          </select>
+        </div>
+
+        <div id="cart-promo-box" class="hidden space-y-2 pt-4 border-t border-uw">
+          <label for="cart-promo-input" class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Kode Voucher (URBAN26 / AMERIKA10)</label>
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="cart-promo-input"
+              placeholder="URBAN26 atau AMERIKA10"
+              maxlength="20"
+              class="flex-1 bg-uw-surface border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs uppercase text-uw-main placeholder-uw-muted focus:outline-none"
+            >
+            <button type="button" id="apply-promo-btn" class="px-4 py-2.5 rounded-xl bg-[#F2F0EB] hover-bg-uw-accent text-uw-base font-display font-extrabold text-xs uppercase transition-colors">
+              Terapkan
+            </button>
+          </div>
+          <p id="promo-status-msg" class="text-xs hidden"></p>
+        </div>
+
+        <div id="cart-note-box" class="hidden space-y-1.5 pt-4 border-t border-uw">
+          <label for="cart-quick-note" class="block text-xs font-bold uppercase tracking-wider text-uw-muted">Catatan Keranjang</label>
+          <input
+            type="text"
+            id="cart-quick-note"
+            maxlength="140"
+            placeholder="Contoh: Packing gift box / kirim sore..."
+            class="w-full bg-uw-surface border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none"
+          >
+        </div>
+      </div>
+
+      <div id="cart-footer" class="hidden p-5 border-t border-uw bg-uw-surface space-y-3">
+        <div class="space-y-1.5 text-xs">
+          <div class="flex justify-between text-uw-muted">
+            <span>Subtotal</span>
+            <span id="cart-subtotal-text" class="text-uw-main font-semibold">Rp 0</span>
+          </div>
+          <div id="cart-discount-row" class="hidden flex justify-between text-uw-accent font-bold">
+            <span id="cart-discount-label">Diskon Voucher</span>
+            <span id="cart-discount-text">- Rp 0</span>
+          </div>
+          <div class="flex justify-between text-uw-muted">
+            <span>Ongkos Kirim</span>
+            <span id="cart-shipping-text" class="text-uw-main font-semibold">Rp 18.000</span>
+          </div>
+          <div class="flex justify-between text-sm font-display font-extrabold text-uw-main pt-2 border-t border-uw">
+            <span>Total</span>
+            <span id="cart-total-text" class="text-uw-accent">Rp 0</span>
+          </div>
+        </div>
+
+        <button type="button" id="open-wa-checkout-modal-btn" class="w-full py-3.5 px-5 rounded-2xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+          <span>Lanjut ke Checkout WhatsApp</span>
+        </button>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- DRAWER WISHLIST -->
+  <div id="wishlist-drawer-backdrop" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+    <aside aria-label="Wishlist Produk" class="w-full max-w-md bg-uw-base border-l border-uw h-full flex flex-col shadow-2xl">
+
+      <div class="p-5 border-b border-uw flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <h3 class="font-display font-extrabold text-lg text-uw-main uppercase">Wishlist</h3>
+          <span id="drawer-wishlist-count" class="px-2.5 py-0.5 rounded-full bg-[#F2F0EB] text-[#151515] font-extrabold text-xs">0</span>
+        </div>
+        <button type="button" id="close-wishlist-btn" aria-label="Tutup wishlist" class="p-2 rounded-xl bg-uw-surface hover-bg-uw-elevated text-uw-main">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5">
+        <div id="wishlist-items-container" class="space-y-3"></div>
+        <div id="empty-wishlist-state" class="py-16 text-center space-y-3">
+          <p class="font-display font-bold text-base text-uw-main">Wishlist masih kosong</p>
+          <p class="text-xs text-uw-muted max-w-xs mx-auto">Simpan produk favorit Anda dengan ikon hati pada katalog.</p>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- MODAL CHECKOUT WHATSAPP TERVALIDASI -->
+  <div id="wa-checkout-modal" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="relative w-full max-w-lg bg-uw-surface border border-uw rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col">
+      <div class="p-5 border-b border-uw flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-uw-accent">KONFIRMASI PESANAN</span>
+          <h3 id="wa-modal-title" class="font-display font-extrabold text-xl text-uw-main">Checkout WhatsApp</h3>
+        </div>
+        <button type="button" id="close-wa-checkout-modal" aria-label="Tutup modal checkout" class="w-9 h-9 rounded-full bg-uw-base hover-bg-uw-accent text-uw-main hover-text-uw-base flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4">
+        <!-- Ringkasan Otomatis Pesanan -->
+        <div class="p-3.5 rounded-2xl bg-uw-base border border-uw space-y-2 text-xs">
+          <div class="flex items-center justify-between font-bold text-uw-main">
+            <span>Ringkasan Pesanan</span>
+            <span id="wa-summary-count" class="text-uw-accent">0 item</span>
+          </div>
+          <div id="wa-summary-items" class="space-y-1 text-uw-muted max-h-28 overflow-y-auto"></div>
+          <div class="pt-2 border-t border-uw flex justify-between font-display font-extrabold text-sm text-uw-main">
+            <span>Total Bayar</span>
+            <span id="wa-summary-total" class="text-uw-accent">Rp 0</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="wa-buyer-name" class="block text-xs font-bold text-uw-main mb-1">Nama Penerima *</label>
+            <input type="text" id="wa-buyer-name" maxlength="60" placeholder="Contoh: Raka Pratama" class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none">
+          </div>
+
+          <div>
+            <label for="wa-target-number" class="block text-xs font-bold text-uw-main mb-1">No. HP / WhatsApp (62...) *</label>
+            <input type="tel" id="wa-target-number" maxlength="18" value="6281234567890" placeholder="6281234567890" class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="wa-city" class="block text-xs font-bold text-uw-main mb-1">Kota / Kecamatan *</label>
+            <input type="text" id="wa-city" maxlength="80" placeholder="Contoh: Medan Sunggal" class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none">
+          </div>
+
+          <div>
+            <label for="wa-shipping-method" class="block text-xs font-bold text-uw-main mb-1">Metode Pengiriman</label>
+            <select id="wa-shipping-method" class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main font-semibold focus:outline-none">
+              <option value="regular">Reguler (2-4 Hari) — Rp 18.000</option>
+              <option value="express">Express Next-Day (1-2 Hari) — Rp 35.000</option>
+              <option value="pickup">Ambil di Store Urban Wear — Gratis</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="wa-address" class="block text-xs font-bold text-uw-main mb-1">Alamat Lengkap *</label>
+          <textarea id="wa-address" rows="2" maxlength="200" placeholder="Nama jalan, nomor rumah, RT/RW, kode pos..." class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none resize-none"></textarea>
+        </div>
+
+        <div>
+          <label for="wa-order-note" class="block text-xs font-bold text-uw-main mb-1">Catatan Kurir</label>
+          <input type="text" id="wa-order-note" maxlength="160" placeholder="Patokan lokasi atau catatan tambahan..." class="w-full bg-uw-base border border-uw focus-border-uw-accent rounded-xl px-3.5 py-2.5 text-xs text-uw-main placeholder-uw-muted focus:outline-none">
+        </div>
+
+        <p id="wa-form-error" class="hidden text-xs text-red-400 font-semibold"></p>
+      </div>
+
+      <div class="p-4 border-t border-uw bg-uw-base flex flex-wrap items-center gap-2.5">
+        <button type="button" id="copy-wa-summary-btn" class="px-4 py-3 rounded-xl bg-uw-surface hover-bg-uw-elevated text-uw-main text-xs font-bold border border-uw transition-colors">
+          Salin Ringkasan Pesanan
+        </button>
+        <button type="button" id="confirm-wa-send-btn" class="flex-1 min-w-[180px] py-3 px-4 rounded-xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-colors">
+          Kirim ke WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" aria-live="polite" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-xs w-full pointer-events-none"></div>
+
+  <!-- SCRIPT INTERAKTIF UTAMA -->
+  <script>
+    (function () {
+      'use strict';
+
+      var PRODUCTS = [
+        // 1. OUTER & JACKET (4 ITEM)
+        {
+          id: 'uw-out-01',
+          name: 'Varsity Letterman Jacket',
+          category: 'Outer & Jacket',
+          price: 749000,
+          badge: 'BESTSELLER',
+          rating: 4.9,
+          soldCount: 284,
+          stock: 18,
+          createdOrder: 1,
+          colors: [
+            { name: 'Charcoal & Cream', hex: '#262626' },
+            { name: 'Street Orange', hex: '#FF5A1F' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Jaket varsity wool & lengan faux-leather dengan bordir chenille patch klasik Amerika.',
+          fabricSpec: 'Body 70% Melton Wool & 30% Polyester, lengan Vegan Faux-Leather, furing satin quilted.',
+          fitGuide: 'American boxy fit. Pilih ukuran sesuai size chart untuk layering hoodie tipis.',
+          careGuide: 'Dry clean disarankan atau lap noda lokal dengan kain lembap; hindari mesin pengering panas.',
+          image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-out-02',
+          name: 'Detroit Canvas Work Jacket',
+          category: 'Outer & Jacket',
+          price: 689000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 196,
+          stock: 14,
+          createdOrder: 2,
+          colors: [
+            { name: 'Asphalt Black', hex: '#1B1B1B' },
+            { name: 'Sandstone Off-White', hex: '#D8D2C5' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Work jacket heavy duck canvas dengan kerah corduroy kontras dan resleting logam.',
+          fabricSpec: '12oz Heavy Cotton Duck Canvas, kerah 100% Cotton Corduroy, saku dada berritsleting.',
+          fitGuide: 'Relaxed workwear cut dengan bahu terstruktur dan panjang pas pinggang.',
+          careGuide: 'Cuci terpisah dengan air dingin dan kancing/ritsleting tertutup; jemur di tempat teduh.',
+          image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-out-03',
+          name: 'Vintage Washed Bomber Jacket',
+          category: 'Outer & Jacket',
+          price: 629000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 162,
+          stock: 20,
+          createdOrder: 3,
+          colors: [
+            { name: 'Washed Charcoal', hex: '#2B2B2B' },
+            { name: 'Signal Orange', hex: '#FF5A1F' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Siluet MA-1 flight bomber dengan efek washed vintage dan rib knit tebal di pergelangan.',
+          fabricSpec: 'Nylon twill washed water-repellent ringan dengan heavy rib-knit collar, cuff, dan hem.',
+          fitGuide: 'Classic flight bomber fit; naikkan 1 ukuran bila menginginkan tampilan lebih longgar.',
+          careGuide: 'Cuci lembut mode delicates, jangan gunakan pemutih atau setrika langsung pada rib.',
+          image: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-out-04',
+          name: 'Denim Trucker Overshirt',
+          category: 'Outer & Jacket',
+          price: 539000,
+          badge: 'LIMITED',
+          rating: 4.7,
+          soldCount: 141,
+          stock: 16,
+          createdOrder: 4,
+          colors: [
+            { name: 'Indigo Charcoal', hex: '#242933' },
+            { name: 'Vintage Stone', hex: '#8F8B82' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Kemeja luar denim selvedge-look wash dengan kancing snap metalik dan saku fungsional.',
+          fabricSpec: '13.5oz Cotton Denim selvedge-look wash dengan antique metal snap buttons.',
+          fitGuide: 'Overshirt cut yang nyaman dipakai sebagai outer di atas kaos maupun kemeja.',
+          careGuide: 'Balik bagian dalam saat mencuci dengan air dingin untuk menjaga karakter wash denim.',
+          image: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80'
+        },
+
+        // 2. TOPS & TEES (4 ITEM)
+        {
+          id: 'uw-top-05',
+          name: 'Heavyweight Boxy Tee',
+          category: 'Tops & Tees',
+          price: 229000,
+          badge: 'BESTSELLER',
+          rating: 4.9,
+          soldCount: 418,
+          stock: 35,
+          createdOrder: 5,
+          colors: [
+            { name: 'Charcoal Black', hex: '#181818' },
+            { name: 'Off-White', hex: '#F2F0EB' },
+            { name: 'Urban Orange', hex: '#FF5A1F' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Kaos 280 GSM combed cotton potongan boxy dengan sablon retro collegiate.',
+          fabricSpec: '100% Ring-Spun Combed Cotton 280 GSM, kerah rib 2.2cm anti-melar, plastisol screenprint.',
+          fitGuide: 'Boxy cropped streetwear fit dengan lebar dada ekstra dan bahu drop.',
+          careGuide: 'Cuci dengan air dingin, balik cetakan ke dalam, dan setrika suhu rendah dari sisi dalam.',
+          image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-top-06',
+          name: 'Striped Rugby Polo Shirt',
+          category: 'Tops & Tees',
+          price: 349000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 175,
+          stock: 22,
+          createdOrder: 6,
+          colors: [
+            { name: 'Stripe Charcoal / Cream', hex: '#3A3A3A' },
+            { name: 'Stripe Orange / Black', hex: '#FF5A1F' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Rugby shirt jersey katun tebal bergaris klasik dengan kerah twill kontras.',
+          fabricSpec: 'Heavyweight Cotton Jersey 290 GSM, kerah woven cotton twill, kancing karet tersembunyi.',
+          fitGuide: 'Relaxed athletic rugby fit yang rapi sekaligus kasual.',
+          careGuide: 'Cuci mesin putaran normal dengan air dingin; jemur mendatar agar bentuk terjaga.',
+          image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-top-07',
+          name: 'Vintage Acid-Wash Hoodie',
+          category: 'Tops & Tees',
+          price: 469000,
+          badge: 'BESTSELLER',
+          rating: 4.9,
+          soldCount: 312,
+          stock: 24,
+          createdOrder: 7,
+          colors: [
+            { name: 'Acid Charcoal', hex: '#2D2D2D' },
+            { name: 'Faded Bone', hex: '#DDD9CE' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Hoodie acid-wash berkarakter dengan drop shoulder dan tudung double-lined tebal.',
+          fabricSpec: '380 GSM French Terry / Fleece acid-washed, tudung lapis ganda tanpa tali serut.',
+          fitGuide: 'Oversized drop-shoulder silhouette dengan rib tebal di pinggang dan lengan.',
+          careGuide: 'Cuci terpisah pada pencucian awal karena efek pigment acid-wash alami.',
+          image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-top-08',
+          name: 'Flannel Work Shirt',
+          category: 'Tops & Tees',
+          price: 319000,
+          badge: 'NEW DROP',
+          rating: 4.7,
+          soldCount: 204,
+          stock: 27,
+          createdOrder: 8,
+          colors: [
+            { name: 'Plaid Charcoal / Orange', hex: '#B84317' },
+            { name: 'Plaid Obsidian / Bone', hex: '#252525' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Kemeja flanel kotak brushed cotton lembut dengan dua saku dada berkancing.',
+          fabricSpec: '100% Brushed Cotton Flannel 210 GSM dengan kancing melamin matte.',
+          fitGuide: 'Boxy workwear fit; dapat dikenakan sebagai kemeja maupun outer terbuka.',
+          careGuide: 'Cuci air dingin, hindari pemutih, dan setrika uap ringan.',
+          image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80'
+        },
+
+        // 3. BOTTOMS (4 ITEM)
+        {
+          id: 'uw-bot-09',
+          name: 'Baggy Carpenter Jeans',
+          category: 'Bottoms',
+          price: 499000,
+          badge: 'BESTSELLER',
+          rating: 4.9,
+          soldCount: 268,
+          stock: 19,
+          createdOrder: 9,
+          colors: [
+            { name: 'Washed Black Denim', hex: '#1E1E1E' },
+            { name: 'Vintage Mid-Wash', hex: '#5A6577' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Celana denim wide-leg baggy bergaya tukang kayu dengan hammer loop dan saku penggaris.',
+          fabricSpec: '13oz Non-Stretch Cotton Denim dengan jahitan triple-stitch dan hammer loop samping.',
+          fitGuide: 'Baggy wide-leg cut dari pinggul hingga ujung kaki untuk menumpuk sepatu.',
+          careGuide: 'Cuci terbalik dengan air dingin; kurangi frekuensi mencuci agar warna denim awet.',
+          image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-bot-10',
+          name: 'Double-Knee Chino Pants',
+          category: 'Bottoms',
+          price: 429000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 183,
+          stock: 21,
+          createdOrder: 10,
+          colors: [
+            { name: 'Off-White Khaki', hex: '#EAE6DC' },
+            { name: 'Charcoal Slate', hex: '#282828' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Celana chino potongan relaxed dengan panel lutut ganda yang diperkuat.',
+          fabricSpec: '10.5oz Heavy Twill Cotton dengan lapisan double-knee dan bartack penguat.',
+          fitGuide: 'Relaxed straight fit dengan kenyamanan gerak optimal sepanjang hari.',
+          careGuide: 'Cuci air hangat/dingin setara, setrika suhu sedang jika diperlukan.',
+          image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-bot-11',
+          name: 'Nylon Track Cargo Pants',
+          category: 'Bottoms',
+          price: 459000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 154,
+          stock: 23,
+          createdOrder: 11,
+          colors: [
+            { name: 'Tactical Charcoal', hex: '#1D1D1D' },
+            { name: 'Orange Trim Black', hex: '#FF5A1F' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Celana kargo nilon utilitas urban dengan toggle drawcord di bagian mata kaki dan banyak saku.',
+          fabricSpec: 'Crinkle Nylon Taslan tahan angin dengan mesh lining dan elastic drawstring hem.',
+          fitGuide: 'Loose utility fit; sesuaikan drawcord hem untuk siluet jogger atau lurus.',
+          careGuide: 'Cuci tangan atau mesin putaran lembut air dingin; keringkan di tempat teduh.',
+          image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-bot-12',
+          name: 'French Terry Sweatshorts',
+          category: 'Bottoms',
+          price: 259000,
+          badge: 'BESTSELLER',
+          rating: 4.7,
+          soldCount: 295,
+          stock: 30,
+          createdOrder: 12,
+          colors: [
+            { name: 'Vintage Wash Charcoal', hex: '#292929' },
+            { name: 'Raw Off-White', hex: '#EDEAE2' }
+          ],
+          sizes: ['S', 'M', 'L', 'XL'],
+          shortDesc: 'Celana pendek fleece heavyweight dengan pinggang karet tebal dan detail raw edge.',
+          fabricSpec: '360 GSM Cotton French Terry dengan saku samping dalam dan pinggang serut.',
+          fitGuide: 'Above-the-knee relaxed cut dengan bukaan paha nyaman.',
+          careGuide: 'Cuci air dingin bersama warna senada, hindari pemutih.',
+          image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=700&q=80'
+        },
+
+        // 4. ACCESSORIES (4 ITEM)
+        {
+          id: 'uw-acc-13',
+          name: 'Classic Wool Snapback Cap',
+          category: 'Accessories',
+          price: 179000,
+          badge: 'BESTSELLER',
+          rating: 4.9,
+          soldCount: 340,
+          stock: 40,
+          createdOrder: 13,
+          colors: [
+            { name: 'Charcoal / Orange Patch', hex: '#FF5A1F' },
+            { name: 'Black / Off-White', hex: '#F2F0EB' }
+          ],
+          sizes: ['One Size'],
+          shortDesc: 'Topi snapback mahkota terstruktur, visor datar, dan bordir chain-stitch patch.',
+          fabricSpec: '80% Acrylic Wool Blend dengan visor datar kokoh dan snapback adjustable.',
+          fitGuide: 'One Size fits most (lingkar kepala 55 - 61 cm dapat diatur).',
+          careGuide: 'Bersihkan noda dengan sikat lembut dan kain lembap; jangan rendam penuh.',
+          image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-acc-14',
+          name: 'Heavy Cuban Curb Chain',
+          category: 'Accessories',
+          price: 219000,
+          badge: 'NEW DROP',
+          rating: 4.8,
+          soldCount: 221,
+          stock: 28,
+          createdOrder: 14,
+          colors: [
+            { name: 'Brushed Steel Silver', hex: '#C8CCD0' },
+            { name: 'Dark Gunmetal', hex: '#3B3F45' }
+          ],
+          sizes: ['One Size'],
+          shortDesc: 'Kalung rantai Cuban curb tebal berbahan stainless steel anti-karat dengan pengait kuat.',
+          fabricSpec: '316L Stainless Steel lebar mata rantai 9mm, panjang 55cm, box clasp pengaman.',
+          fitGuide: 'Panjang 55cm jatuh tepat di atas tulang dada untuk layering tee atau hoodie.',
+          careGuide: 'Lap dengan kain mikrofiber kering setelah terkena keringat atau air.',
+          image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-acc-15',
+          name: 'Canvas Messenger Tote Bag',
+          category: 'Accessories',
+          price: 289000,
+          badge: 'BESTSELLER',
+          rating: 4.8,
+          soldCount: 189,
+          stock: 25,
+          createdOrder: 15,
+          colors: [
+            { name: 'Off-White Canvas', hex: '#EFECE4' },
+            { name: 'Charcoal Canvas', hex: '#212121' }
+          ],
+          sizes: ['One Size'],
+          shortDesc: 'Tas tote & selempang kanvas tebal dengan tali webbing diperkuat dan kompartemen laptop 14 inci.',
+          fabricSpec: '14oz Heavy Cotton Canvas dengan strap nylon webbing dan jahitan silang beban.',
+          fitGuide: 'Kapasitas ~16 liter, dapat dijinjing maupun diselempangkan (crossbody).',
+          careGuide: 'Bersihkan noda dengan spons lembap dan sabun lembut; jemur di udara terbuka.',
+          image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id: 'uw-acc-16',
+          name: 'Ribbed Crew Sock 3-Pack',
+          category: 'Accessories',
+          price: 139000,
+          badge: 'NEW DROP',
+          rating: 4.9,
+          soldCount: 465,
+          stock: 50,
+          createdOrder: 16,
+          colors: [
+            { name: 'Off-White / Orange Stripe', hex: '#FF5A1F' },
+            { name: 'Charcoal / Cream Stripe', hex: '#242424' }
+          ],
+          sizes: ['One Size'],
+          shortDesc: 'Paket 3 pasang kaus kaki crew rib bergaris atletik dengan bantalan telapak empuk.',
+          fabricSpec: '82% Combed Cotton, 14% Polyester, 4% Spandex dengan cushioned sole & arch support.',
+          fitGuide: 'One Size (cocok untuk ukuran sepatu EU 39 - 45).',
+          careGuide: 'Cuci air hangat/dingin maksimal 30°C, hindari pemutih klorin.',
+          image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?auto=format&fit=crop&w=700&q=80'
+        }
+      ];
+
+      var SHIPPING_RATES = {
+        regular: { label: 'Reguler (2-4 Hari)', cost: 18000 },
+        express: { label: 'Express Next-Day (1-2 Hari)', cost: 35000 },
+        pickup: { label: 'Ambil di Store Urban Wear', cost: 0 }
+      };
+
+      var VOUCHERS = {
+        URBAN26: { code: 'URBAN26', rate: 0.15, label: 'URBAN26 (15%)' },
+        AMERIKA10: { code: 'AMERIKA10', rate: 0.10, label: 'AMERIKA10 (10%)' }
+      };
+
+      var CART_KEY = 'urbanwear_cart_v2';
+      var WISHLIST_KEY = 'urbanwear_wishlist_v2';
+      var ORDERS_KEY = 'urbanwear_orders_v1';
+
+      var appState = {
+        category: 'Semua',
+        query: '',
+        sort: 'featured',
+        onlyBestseller: false,
+        maxPrice: null,
+        cart: loadArray(CART_KEY),
+        wishlist: loadArray(WISHLIST_KEY),
+        orders: loadArray(ORDERS_KEY),
+        activeVoucher: null,
+        shippingMethod: 'regular',
+        activeProduct: null,
+        selectedColor: null,
+        selectedSize: '',
+        selectedQty: 1,
+        activeInfoTab: 'fabric'
+      };
+
+      function loadArray(storageKey) {
+        try {
+          var raw = localStorage.getItem(storageKey);
+          if (!raw) return [];
+          var parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function saveArray(storageKey, list) {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(list));
+        } catch (err) {
+          showToast('Penyimpanan lokal tidak tersedia.', true);
+        }
+      }
+
+      function sanitizeStr(val) {
+        return String(val || '').replace(/[<>]/g, '').trim();
+      }
+
+      function formatRp(amount) {
+        return 'Rp ' + Number(amount || 0).toLocaleString('id-ID');
+      }
+
+      function showToast(msg, isError) {
+        var box = document.getElementById('toast-container');
+        if (!box) return;
+
+        var toast = document.createElement('div');
+        toast.className = 'pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-2xl border text-xs font-bold transition-opacity duration-200 ' +
+          (isError ? 'bg-red-950 border-red-500 text-[#F2F0EB]' : 'bg-[#1F1F1F] border-[#FF5A1F] text-[#F2F0EB]');
+
+        var dot = document.createElement('span');
+        dot.className = 'w-2.5 h-2.5 rounded-full shrink-0 ' + (isError ? 'bg-red-400' : 'bg-[#FF5A1F]');
+
+        var label = document.createElement('span');
+        label.textContent = sanitizeStr(msg);
+
+        toast.appendChild(dot);
+        toast.appendChild(label);
+        box.appendChild(toast);
+
+        setTimeout(function () {
+          toast.style.opacity = '0';
+          setTimeout(function () {
+            if (toast.parentNode) {
+              toast.parentNode.removeChild(toast);
+            }
+          }, 220);
+        }, 2600);
+      }
+
+      function getFilteredProducts() {
+        var kw = appState.query.toLowerCase();
+        var list = PRODUCTS.filter(function (item) {
+          var catOk = appState.category === 'Semua' || item.category === appState.category;
+          var bestOk = !appState.onlyBestseller || item.badge === 'BESTSELLER' || item.soldCount >= 220;
+          var priceOk = !appState.maxPrice || item.price <= appState.maxPrice;
+          var kwOk = !kw ||
+            item.name.toLowerCase().indexOf(kw) !== -1 ||
+            item.category.toLowerCase().indexOf(kw) !== -1 ||
+            item.shortDesc.toLowerCase().indexOf(kw) !== -1 ||
+            item.fabricSpec.toLowerCase().indexOf(kw) !== -1;
+          return catOk && bestOk && priceOk && kwOk;
+        });
+
+        var copy = list.slice();
+        if (appState.sort === 'price-asc') {
+          copy.sort(function (a, b) { return a.price - b.price; });
+        } else if (appState.sort === 'price-desc') {
+          copy.sort(function (a, b) { return b.price - a.price; });
+        } else if (appState.sort === 'bestseller') {
+          copy.sort(function (a, b) { return b.soldCount - a.soldCount; });
+        } else {
+          copy.sort(function (a, b) { return a.createdOrder - b.createdOrder; });
+        }
+        return copy;
+      }
+
+      function renderCatalog() {
+        var grid = document.getElementById('product-grid');
+        var emptyState = document.getElementById('empty-catalog-state');
+        var infoText = document.getElementById('catalog-count-info');
+        var resetBtn = document.getElementById('reset-filter-btn');
+
+        while (grid.firstChild) {
+          grid.removeChild(grid.firstChild);
+        }
+
+        var items = getFilteredProducts();
+        var activeFilters = [];
+        if (appState.category !== 'Semua') activeFilters.push(appState.category);
+        if (appState.onlyBestseller) activeFilters.push('Terlaris');
+        if (appState.maxPrice) activeFilters.push('<= ' + formatRp(appState.maxPrice));
+
+        infoText.textContent = 'Menampilkan ' + items.length + ' dari ' + PRODUCTS.length + ' artikel' +
+          (activeFilters.length ? ' (' + activeFilters.join(' • ') + ')' : '');
+
+        if (appState.category !== 'Semua' || appState.query !== '' || appState.onlyBestseller || appState.maxPrice) {
+          resetBtn.classList.remove('hidden');
+        } else {
+          resetBtn.classList.add('hidden');
+        }
+
+        if (items.length === 0) {
+          emptyState.classList.remove('hidden');
+          return;
+        }
+        emptyState.classList.add('hidden');
+
+        items.forEach(function (prod) {
+          var isWish = appState.wishlist.indexOf(prod.id) !== -1;
+
+          var card = document.createElement('article');
+          card.className = 'group bg-uw-surface rounded-3xl border border-uw hover-border-uw-accent overflow-hidden flex flex-col justify-between transition-all duration-300';
+
+          var imgWrap = document.createElement('div');
+          imgWrap.className = 'relative aspect-[4/5] bg-uw-base overflow-hidden cursor-pointer';
+          imgWrap.addEventListener('click', function () {
+            openDetailModal(prod);
+          });
+
+          var img = document.createElement('img');
+          img.src = prod.image;
+          img.alt = prod.name;
+          img.loading = 'lazy';
+          img.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500';
+          img.addEventListener('error', function () {
+            img.src = 'https://placehold.co/600x750/1F1F1F/F2F0EB?text=URBAN+WEAR';
+          });
+          imgWrap.appendChild(img);
+
+          var tagBadge = document.createElement('span');
+          tagBadge.className = 'absolute top-3.5 left-3.5 px-3 py-1 rounded-xl font-display font-extrabold text-[11px] uppercase tracking-wider ' +
+            (prod.badge === 'BESTSELLER' ? 'bg-[#FF5A1F] text-[#151515]' : 'bg-[#F2F0EB] text-[#151515]');
+          tagBadge.textContent = prod.badge;
+          imgWrap.appendChild(tagBadge);
+
+          var wishBtn = document.createElement('button');
+          wishBtn.type = 'button';
+          wishBtn.setAttribute('aria-label', 'Toggle wishlist ' + prod.name);
+          wishBtn.className = 'absolute top-3.5 right-3.5 w-10 h-10 rounded-full bg-[#151515]/90 border border-uw flex items-center justify-center transition-transform hover:scale-110';
+          wishBtn.addEventListener('click', function (ev) {
+            ev.stopPropagation();
+            toggleWishlist(prod.id);
+          });
+
+          var heartSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          heartSvg.setAttribute('viewBox', '0 0 24 24');
+          heartSvg.setAttribute('class', 'w-5 h-5 ' + (isWish ? 'text-[#FF5A1F] fill-current' : 'text-[#F2F0EB] fill-none'));
+          heartSvg.setAttribute('stroke', 'currentColor');
+          var heartPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          heartPath.setAttribute('stroke-linecap', 'round');
+          heartPath.setAttribute('stroke-linejoin', 'round');
+          heartPath.setAttribute('stroke-width', '2');
+          heartPath.setAttribute('d', 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z');
+          heartSvg.appendChild(heartPath);
+          wishBtn.appendChild(heartSvg);
+          imgWrap.appendChild(wishBtn);
+
+          var body = document.createElement('div');
+          body.className = 'p-5 flex-1 flex flex-col justify-between space-y-4';
+
+          var topMeta = document.createElement('div');
+          topMeta.className = 'space-y-1.5';
+
+          var metaRow = document.createElement('div');
+          metaRow.className = 'flex items-center justify-between gap-2 text-[11px] text-uw-muted';
+
+          var catEl = document.createElement('span');
+          catEl.className = 'font-bold uppercase tracking-wider';
+          catEl.textContent = prod.category;
+
+          var ratingEl = document.createElement('span');
+          ratingEl.className = 'font-semibold text-uw-main';
+          ratingEl.textContent = '★ ' + prod.rating.toFixed(1) + ' (' + prod.soldCount + ')';
+
+          metaRow.appendChild(catEl);
+          metaRow.appendChild(ratingEl);
+
+          var titleEl = document.createElement('h3');
+          titleEl.className = 'font-display font-bold text-base text-uw-main hover-text-uw-accent transition-colors cursor-pointer';
+          titleEl.textContent = prod.name;
+          titleEl.addEventListener('click', function () {
+            openDetailModal(prod);
+          });
+
+          var descEl = document.createElement('p');
+          descEl.className = 'text-xs text-uw-muted line-clamp-2 leading-relaxed';
+          descEl.textContent = prod.shortDesc;
+
+          var priceEl = document.createElement('p');
+          priceEl.className = 'font-display font-extrabold text-base text-uw-accent pt-1';
+          priceEl.textContent = formatRp(prod.price);
+
+          topMeta.appendChild(metaRow);
+          topMeta.appendChild(titleEl);
+          topMeta.appendChild(descEl);
+          topMeta.appendChild(priceEl);
+
+          var actions = document.createElement('div');
+          actions.className = 'grid grid-cols-2 gap-2 pt-3 border-t border-uw';
+
+          var detailBtn = document.createElement('button');
+          detailBtn.type = 'button';
+          detailBtn.className = 'py-2.5 px-3 rounded-xl bg-uw-base hover-bg-uw-elevated text-uw-main border border-uw font-display font-bold text-xs transition-colors';
+          detailBtn.textContent = 'Detail & Opsi';
+          detailBtn.addEventListener('click', function () {
+            openDetailModal(prod);
+          });
+
+          var quickCartBtn = document.createElement('button');
+          quickCartBtn.type = 'button';
+          quickCartBtn.className = 'py-2.5 px-3 rounded-xl bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-xs transition-colors';
+          quickCartBtn.textContent = '+ Keranjang';
+          quickCartBtn.addEventListener('click', function () {
+            var defColor = prod.colors[0].name;
+            var defSize = prod.sizes[0];
+            addToCart(prod, defColor, defSize, 1);
+          });
+
+          actions.appendChild(detailBtn);
+          actions.appendChild(quickCartBtn);
+
+          body.appendChild(topMeta);
+          body.appendChild(actions);
+
+          card.appendChild(imgWrap);
+          card.appendChild(body);
+          grid.appendChild(card);
+        });
+      }
+
+      function setActiveCategory(cat) {
+        appState.category = cat;
+
+        document.querySelectorAll('.nav-cat-btn').forEach(function (b) {
+          var active = b.getAttribute('data-nav-cat') === cat;
+          b.className = 'nav-cat-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all ' +
+            (active ? 'bg-[#FF5A1F] text-[#151515]' : 'text-[#F2F0EB] hover-text-uw-accent');
+        });
+
+        document.querySelectorAll('.filter-tab-btn').forEach(function (b) {
+          var active = b.getAttribute('data-filter') === cat;
+          b.className = 'filter-tab-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold transition-all ' +
+            (active ? 'bg-[#FF5A1F] text-[#151515]' : 'bg-[#1F1F1F] text-[#F2F0EB] border border-[#2E2E2E] hover-border-uw-accent');
+        });
+
+        document.querySelectorAll('.mobile-cat-btn').forEach(function (b) {
+          var active = b.getAttribute('data-mobile-cat') === cat;
+          b.className = 'mobile-cat-btn text-left px-4 py-3 rounded-xl text-sm font-bold ' +
+            (active ? 'bg-[#FF5A1F] text-[#151515]' : 'bg-[#1F1F1F] text-[#F2F0EB]');
+        });
+
+        renderCatalog();
+      }
+
+      function openDetailModal(prod) {
+        appState.activeProduct = prod;
+        appState.selectedColor = prod.colors[0];
+        appState.selectedSize = prod.sizes[0];
+        appState.selectedQty = 1;
+        appState.activeInfoTab = 'fabric';
+
+        document.getElementById('modal-product-img').src = prod.image;
+        document.getElementById('modal-product-img').alt = prod.name;
+        document.getElementById('modal-product-category').textContent = prod.category;
+        document.getElementById('modal-product-meta').textContent = '★ ' + prod.rating.toFixed(1) + ' • ' + prod.soldCount + ' terjual';
+        document.getElementById('modal-product-title').textContent = prod.name;
+        document.getElementById('modal-product-price').textContent = formatRp(prod.price);
+        document.getElementById('modal-product-desc').textContent = prod.shortDesc;
+        document.getElementById('modal-qty-value').textContent = '1';
+        document.getElementById('modal-stock-label').textContent = '(Stok: ' + prod.stock + ')';
+
+        var badge = document.getElementById('modal-product-badge');
+        badge.textContent = prod.badge;
+        badge.classList.remove('hidden');
+
+        renderDetailSelectors();
+        renderDetailInfoTab();
+        syncDetailWishlistBtn();
+        document.getElementById('product-modal').classList.remove('hidden');
+      }
+
+      function renderDetailSelectors() {
+        var prod = appState.activeProduct;
+        if (!prod) return;
+
+        document.getElementById('selected-color-label').textContent = appState.selectedColor.name;
+        document.getElementById('selected-size-label').textContent = appState.selectedSize;
+
+        var colorWrap = document.getElementById('modal-color-options');
+        while (colorWrap.firstChild) colorWrap.removeChild(colorWrap.firstChild);
+
+        prod.colors.forEach(function (c) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          var sel = c.name === appState.selectedColor.name;
+          btn.className = 'inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold border transition-all ' +
+            (sel ? 'bg-[#F2F0EB] text-[#151515] border-[#F2F0EB]' : 'bg-[#151515] text-[#F2F0EB] border-[#2E2E2E] hover-border-uw-accent');
+
+          var swatch = document.createElement('span');
+          swatch.className = 'w-3 h-3 rounded-full border border-black/30 shrink-0';
+          swatch.style.backgroundColor = c.hex;
+
+          var cName = document.createElement('span');
+          cName.textContent = c.name;
+
+          btn.appendChild(swatch);
+          btn.appendChild(cName);
+          btn.addEventListener('click', function () {
+            appState.selectedColor = c;
+            renderDetailSelectors();
+          });
+          colorWrap.appendChild(btn);
+        });
+
+        var sizeWrap = document.getElementById('modal-size-options');
+        while (sizeWrap.firstChild) sizeWrap.removeChild(sizeWrap.firstChild);
+
+        prod.sizes.forEach(function (s) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          var sel = s === appState.selectedSize;
+          btn.className = 'min-w-[44px] px-3.5 py-2 rounded-xl text-xs font-display font-extrabold border transition-all ' +
+            (sel ? 'bg-[#FF5A1F] text-[#151515] border-[#FF5A1F]' : 'bg-[#151515] text-[#F2F0EB] border-[#2E2E2E] hover-border-uw-accent');
+          btn.textContent = s;
+          btn.addEventListener('click', function () {
+            appState.selectedSize = s;
+            renderDetailSelectors();
+          });
+          sizeWrap.appendChild(btn);
+        });
+      }
+
+      function renderDetailInfoTab() {
+        var prod = appState.activeProduct;
+        if (!prod) return;
+
+        document.querySelectorAll('.detail-info-tab').forEach(function (btn) {
+          var isAct = btn.getAttribute('data-info-tab') === appState.activeInfoTab;
+          btn.className = 'detail-info-tab px-3 py-1.5 rounded-lg text-[11px] font-bold transition-colors ' +
+            (isAct ? 'bg-[#FF5A1F] text-[#151515]' : 'bg-[#151515] text-[#F2F0EB] border border-[#2E2E2E]');
+        });
+
+        var contentEl = document.getElementById('modal-info-content');
+        if (appState.activeInfoTab === 'fit') {
+          contentEl.textContent = prod.fitGuide;
+        } else if (appState.activeInfoTab === 'care') {
+          contentEl.textContent = prod.careGuide;
+        } else {
+          contentEl.textContent = prod.fabricSpec;
+        }
+      }
+
+      function syncDetailWishlistBtn() {
+        if (!appState.activeProduct) return;
+        var icon = document.getElementById('modal-wishlist-icon');
+        var active = appState.wishlist.indexOf(appState.activeProduct.id) !== -1;
+        if (active) {
+          icon.classList.add('text-[#FF5A1F]', 'fill-current');
+          icon.classList.remove('fill-none');
+        } else {
+          icon.classList.remove('text-[#FF5A1F]', 'fill-current');
+          icon.classList.add('fill-none');
+        }
+      }
+
+      function closeDetailModal() {
+        document.getElementById('product-modal').classList.add('hidden');
+        appState.activeProduct = null;
+      }
+
+      function addToCart(prod, colorName, size, qty) {
+        var maxStock = Math.max(1, Number(prod.stock) || 20);
+        var amount = Math.max(1, Math.min(maxStock, Number(qty) || 1));
+        var uid = prod.id + '::' + colorName + '::' + size;
+        var found = appState.cart.findIndex(function (x) { return x.uid === uid; });
+
+        if (found > -1) {
+          appState.cart[found].qty = Math.min(maxStock, appState.cart[found].qty + amount);
+        } else {
+          appState.cart.push({
+            uid: uid,
+            id: prod.id,
+            name: prod.name,
+            price: prod.price,
+            stock: maxStock,
+            image: prod.image,
+            color: colorName,
+            size: size,
+            qty: amount
+          });
+        }
+
+        saveArray(CART_KEY, appState.cart);
+        renderCart();
+        showToast('Ditambahkan: ' + prod.name + ' (' + colorName + ', ' + size + ') x' + amount);
+      }
+
+      function adjustCartQty(uid, delta) {
+        var idx = appState.cart.findIndex(function (x) { return x.uid === uid; });
+        if (idx === -1) return;
+        var item = appState.cart[idx];
+        var nextQty = item.qty + delta;
+        if (nextQty <= 0) {
+          appState.cart.splice(idx, 1);
+        } else if (nextQty <= (item.stock || 20)) {
+          item.qty = nextQty;
+        } else {
+          showToast('Batas stok maksimal tercapai (' + (item.stock || 20) + ').', true);
+          return;
+        }
+        saveArray(CART_KEY, appState.cart);
+        renderCart();
+      }
+
+      function removeCartItem(uid) {
+        appState.cart = appState.cart.filter(function (x) { return x.uid !== uid; });
+        saveArray(CART_KEY, appState.cart);
+        renderCart();
+        showToast('Item dihapus dari keranjang.');
+      }
+
+      function clearCart() {
+        appState.cart = [];
+        appState.activeVoucher = null;
+        document.getElementById('cart-promo-input').value = '';
+        document.getElementById('promo-status-msg').classList.add('hidden');
+        saveArray(CART_KEY, appState.cart);
+        renderCart();
+        showToast('Keranjang belanja dikosongkan.');
+      }
+
+      function computeCartTotals() {
+        var subtotal = appState.cart.reduce(function (sum, item) {
+          return sum + (item.price * item.qty);
+        }, 0);
+
+        var discount = 0;
+        if (appState.activeVoucher && VOUCHERS[appState.activeVoucher]) {
+          discount = Math.round(subtotal * VOUCHERS[appState.activeVoucher].rate);
+        }
+
+        var shipInfo = SHIPPING_RATES[appState.shippingMethod] || SHIPPING_RATES.regular;
+        var shippingCost = appState.cart.length > 0 ? shipInfo.cost : 0;
+        var total = Math.max(0, subtotal - discount + shippingCost);
+
+        return {
+          subtotal: subtotal,
+          discount: discount,
+          shippingCost: shippingCost,
+          shippingLabel: shipInfo.label,
+          total: total
+        };
+      }
+
+      function renderCart() {
+        var listBox = document.getElementById('cart-items-container');
+        var emptyBox = document.getElementById('empty-cart-state');
+        var shipBox = document.getElementById('cart-shipping-box');
+        var promoBox = document.getElementById('cart-promo-box');
+        var noteBox = document.getElementById('cart-note-box');
+        var footerBox = document.getElementById('cart-footer');
+        var clearBtn = document.getElementById('clear-cart-btn');
+        var badge = document.getElementById('cart-badge');
+        var drawerCount = document.getElementById('drawer-cart-count');
+
+        while (listBox.firstChild) {
+          listBox.removeChild(listBox.firstChild);
+        }
+
+        var count = appState.cart.reduce(function (sum, item) { return sum + item.qty; }, 0);
+        badge.textContent = String(count);
+        drawerCount.textContent = String(count);
+
+        if (appState.cart.length === 0) {
+          emptyBox.classList.remove('hidden');
+          shipBox.classList.add('hidden');
+          promoBox.classList.add('hidden');
+          noteBox.classList.add('hidden');
+          footerBox.classList.add('hidden');
+          clearBtn.classList.add('hidden');
+          return;
+        }
+
+        emptyBox.classList.add('hidden');
+        shipBox.classList.remove('hidden');
+        promoBox.classList.remove('hidden');
+        noteBox.classList.remove('hidden');
+        footerBox.classList.remove('hidden');
+        clearBtn.classList.remove('hidden');
+
+        appState.cart.forEach(function (item) {
+          var row = document.createElement('div');
+          row.className = 'flex gap-3 p-3 rounded-2xl bg-uw-surface border border-uw items-center';
+
+          var thumb = document.createElement('img');
+          thumb.src = item.image;
+          thumb.alt = item.name;
+          thumb.className = 'w-16 h-20 rounded-xl object-cover bg-uw-base shrink-0';
+
+          var info = document.createElement('div');
+          info.className = 'flex-1 min-w-0 space-y-1';
+
+          var title = document.createElement('h4');
+          title.className = 'font-display font-bold text-xs sm:text-sm text-uw-main truncate';
+          title.textContent = item.name;
+
+          var variant = document.createElement('p');
+          variant.className = 'text-[11px] text-uw-muted';
+          variant.textContent = item.color + ' • ' + item.size;
+
+          var sub = document.createElement('p');
+          sub.className = 'font-display font-extrabold text-xs text-uw-accent';
+          sub.textContent = formatRp(item.price * item.qty);
+
+          var ctrls = document.createElement('div');
+          ctrls.className = 'flex items-center justify-between pt-1';
+
+          var stepper = document.createElement('div');
+          stepper.className = 'inline-flex items-center bg-uw-base rounded-lg border border-uw';
+
+          var minusBtn = document.createElement('button');
+          minusBtn.type = 'button';
+          minusBtn.className = 'w-7 h-7 flex items-center justify-center text-uw-main hover-text-uw-accent font-bold text-xs';
+          minusBtn.textContent = '-';
+          minusBtn.addEventListener('click', function () { adjustCartQty(item.uid, -1); });
+
+          var qText = document.createElement('span');
+          qText.className = 'px-2.5 text-xs font-bold text-uw-main';
+          qText.textContent = String(item.qty);
+
+          var plusBtn = document.createElement('button');
+          plusBtn.type = 'button';
+          plusBtn.className = 'w-7 h-7 flex items-center justify-center text-uw-main hover-text-uw-accent font-bold text-xs';
+          plusBtn.textContent = '+';
+          plusBtn.addEventListener('click', function () { adjustCartQty(item.uid, 1); });
+
+          stepper.appendChild(minusBtn);
+          stepper.appendChild(qText);
+          stepper.appendChild(plusBtn);
+
+          var delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'text-[11px] text-uw-muted hover:text-red-400 underline font-semibold';
+          delBtn.textContent = 'Hapus';
+          delBtn.addEventListener('click', function () { removeCartItem(item.uid); });
+
+          ctrls.appendChild(stepper);
+          ctrls.appendChild(delBtn);
+
+          info.appendChild(title);
+          info.appendChild(variant);
+          info.appendChild(sub);
+          info.appendChild(ctrls);
+
+          row.appendChild(thumb);
+          row.appendChild(info);
+          listBox.appendChild(row);
+        });
+
+        var totals = computeCartTotals();
+        document.getElementById('cart-subtotal-text').textContent = formatRp(totals.subtotal);
+
+        var discRow = document.getElementById('cart-discount-row');
+        if (appState.activeVoucher && VOUCHERS[appState.activeVoucher] && totals.discount > 0) {
+          discRow.classList.remove('hidden');
+          document.getElementById('cart-discount-label').textContent = 'Voucher ' + VOUCHERS[appState.activeVoucher].label;
+          document.getElementById('cart-discount-text').textContent = '- ' + formatRp(totals.discount);
+        } else {
+          discRow.classList.add('hidden');
+        }
+
+        document.getElementById('cart-shipping-text').textContent = totals.shippingCost === 0 ? 'Gratis (Rp 0)' : formatRp(totals.shippingCost);
+        document.getElementById('cart-total-text').textContent = formatRp(totals.total);
+      }
+
+      function toggleWishlist(prodId) {
+        var idx = appState.wishlist.indexOf(prodId);
+        if (idx > -1) {
+          appState.wishlist.splice(idx, 1);
+          showToast('Dihapus dari Wishlist.');
+        } else {
+          appState.wishlist.push(prodId);
+          showToast('Ditambahkan ke Wishlist.');
+        }
+        saveArray(WISHLIST_KEY, appState.wishlist);
+        renderWishlist();
+        renderCatalog();
+        syncDetailWishlistBtn();
+      }
+
+      function renderWishlist() {
+        var box = document.getElementById('wishlist-items-container');
+        var emptyBox = document.getElementById('empty-wishlist-state');
+        var badge = document.getElementById('wishlist-badge');
+        var drawerCount = document.getElementById('drawer-wishlist-count');
+
+        while (box.firstChild) {
+          box.removeChild(box.firstChild);
+        }
+
+        badge.textContent = String(appState.wishlist.length);
+        drawerCount.textContent = String(appState.wishlist.length);
+
+        if (appState.wishlist.length === 0) {
+          emptyBox.classList.remove('hidden');
+          return;
+        }
+        emptyBox.classList.add('hidden');
+
+        appState.wishlist.forEach(function (id) {
+          var prod = PRODUCTS.find(function (p) { return p.id === id; });
+          if (!prod) return;
+
+          var row = document.createElement('div');
+          row.className = 'flex gap-3 p-3 rounded-2xl bg-uw-surface border border-uw items-center';
+
+          var img = document.createElement('img');
+          img.src = prod.image;
+          img.alt = prod.name;
+          img.className = 'w-16 h-20 rounded-xl object-cover bg-uw-base shrink-0';
+
+          var meta = document.createElement('div');
+          meta.className = 'flex-1 min-w-0 space-y-1.5';
+
+          var title = document.createElement('h4');
+          title.className = 'font-display font-bold text-xs sm:text-sm text-uw-main truncate';
+          title.textContent = prod.name;
+
+          var price = document.createElement('p');
+          price.className = 'font-display font-extrabold text-xs text-uw-accent';
+          price.textContent = formatRp(prod.price);
+
+          var btns = document.createElement('div');
+          btns.className = 'flex items-center gap-2 pt-1';
+
+          var addBtn = document.createElement('button');
+          addBtn.type = 'button';
+          addBtn.className = 'px-3 py-1.5 rounded-lg bg-uw-accent hover-bg-uw-accent-dark text-uw-base font-display font-extrabold text-[11px] uppercase';
+          addBtn.textContent = 'Ke Keranjang';
+          addBtn.addEventListener('click', function () {
+            addToCart(prod, prod.colors[0].name, prod.sizes[0], 1);
+          });
+
+          var remBtn = document.createElement('button');
+          remBtn.type = 'button';
+          remBtn.className = 'px-2.5 py-1.5 rounded-lg bg-uw-base text-uw-muted hover:text-red-400 text-[11px] font-semibold';
+          remBtn.textContent = 'Hapus';
+          remBtn.addEventListener('click', function () {
+            toggleWishlist(prod.id);
+          });
+
+          btns.appendChild(addBtn);
+          btns.appendChild(remBtn);
+
+          meta.appendChild(title);
+          meta.appendChild(price);
+          meta.appendChild(btns);
+
+          row.appendChild(img);
+          row.appendChild(meta);
+          box.appendChild(row);
+        });
+      }
+
+      function renderOrdersHistory() {
+        var box = document.getElementById('orders-list-container');
+        var emptyBox = document.getElementById('empty-orders-state');
+        var badge = document.getElementById('orders-badge');
+
+        while (box.firstChild) {
+          box.removeChild(box.firstChild);
+        }
+
+        badge.textContent = String(appState.orders.length);
+
+        if (appState.orders.length === 0) {
+          emptyBox.classList.remove('hidden');
+          return;
+        }
+        emptyBox.classList.add('hidden');
+
+        appState.orders.forEach(function (ord) {
+          var card = document.createElement('div');
+          card.className = 'p-4 rounded-2xl bg-uw-base border border-uw space-y-2 text-xs';
+
+          var top = document.createElement('div');
+          top.className = 'flex items-center justify-between gap-2';
+
+          var idEl = document.createElement('span');
+          idEl.className = 'font-display font-extrabold text-uw-accent';
+          idEl.textContent = ord.orderId + ' • ' + ord.dateText;
+
+          var statusEl = document.createElement('span');
+          statusEl.className = 'px-2.5 py-0.5 rounded-full bg-uw-surface border border-uw text-[11px] font-bold text-uw-main';
+          statusEl.textContent = ord.status;
+
+          top.appendChild(idEl);
+          top.appendChild(statusEl);
+
+          var buyerEl = document.createElement('p');
+          buyerEl.className = 'font-semibold text-uw-main';
+          buyerEl.textContent = ord.buyerName + ' — ' + ord.city;
+
+          var totalEl = document.createElement('p');
+          totalEl.className = 'font-display font-extrabold text-sm text-uw-main';
+          totalEl.textContent = 'Total: ' + formatRp(ord.total) + ' (' + ord.itemCount + ' item)';
+
+          var copyBtn = document.createElement('button');
+          copyBtn.type = 'button';
+          copyBtn.className = 'mt-1 px-3 py-1.5 rounded-lg bg-uw-surface hover-bg-uw-accent text-uw-main hover-text-uw-base border border-uw text-[11px] font-bold transition-colors';
+          copyBtn.textContent = 'Salin Ringkasan';
+          copyBtn.addEventListener('click', function () {
+            copyTextSafe(ord.summaryText, 'Ringkasan pesanan ' + ord.orderId + ' disalin.');
+          });
+
+          card.appendChild(top);
+          card.appendChild(buyerEl);
+          card.appendChild(totalEl);
+          card.appendChild(copyBtn);
+          box.appendChild(card);
+        });
+      }
+
+      function copyTextSafe(text, successMsg) {
+        var tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.setAttribute('readonly', '');
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMsg || 'Teks berhasil disalin.');
+        } catch (err) {
+          showToast('Gagal menyalin otomatis.', true);
+        }
+        document.body.removeChild(tempInput);
+      }
+
+      function syncWaSummaryPreview() {
+        var listBox = document.getElementById('wa-summary-items');
+        while (listBox.firstChild) {
+          listBox.removeChild(listBox.firstChild);
+        }
+
+        var count = appState.cart.reduce(function (s, it) { return s + it.qty; }, 0);
+        var totals = computeCartTotals();
+
+        document.getElementById('wa-summary-count').textContent = count + ' item';
+        document.getElementById('wa-summary-total').textContent = formatRp(totals.total);
+
+        appState.cart.forEach(function (it) {
+          var line = document.createElement('div');
+          line.className = 'flex justify-between gap-2';
+          var left = document.createElement('span');
+          left.className = 'truncate';
+          left.textContent = it.qty + 'x ' + it.name + ' (' + it.color + ', ' + it.size + ')';
+          var right = document.createElement('span');
+          right.className = 'font-semibold text-uw-main shrink-0';
+          right.textContent = formatRp(it.price * it.qty);
+          line.appendChild(left);
+          line.appendChild(right);
+          listBox.appendChild(line);
+        });
+      }
+
+      function openWaCheckoutModal() {
+        if (appState.cart.length === 0) {
+          showToast('Keranjang masih kosong.', true);
+          return;
+        }
+        var quickNote = sanitizeStr(document.getElementById('cart-quick-note').value);
+        if (quickNote && !document.getElementById('wa-order-note').value) {
+          document.getElementById('wa-order-note').value = quickNote;
+        }
+        document.getElementById('wa-shipping-method').value = appState.shippingMethod;
+        syncWaSummaryPreview();
+        document.getElementById('wa-form-error').classList.add('hidden');
+        document.getElementById('wa-checkout-modal').classList.remove('hidden');
+      }
+
+      function closeWaCheckoutModal() {
+        document.getElementById('wa-checkout-modal').classList.add('hidden');
+      }
+
+      function buildOrderPayload() {
+        var errBox = document.getElementById('wa-form-error');
+        errBox.classList.add('hidden');
+
+        if (appState.cart.length === 0) {
+          showToast('Keranjang masih kosong.', true);
+          return null;
+        }
+
+        var buyerName = sanitizeStr(document.getElementById('wa-buyer-name').value);
+        var rawWa = sanitizeStr(document.getElementById('wa-target-number').value).replace(/[^0-9]/g, '');
+        var city = sanitizeStr(document.getElementById('wa-city').value);
+        var address = sanitizeStr(document.getElementById('wa-address').value);
+        var note = sanitizeStr(document.getElementById('wa-order-note').value);
+        var shipKey = document.getElementById('wa-shipping-method').value;
+
+        if (buyerName.length < 2) {
+          errBox.textContent = 'Nama penerima wajib diisi minimal 2 karakter.';
+          errBox.classList.remove('hidden');
+          showToast('Nama penerima wajib diisi.', true);
+          return null;
+        }
+
+        if (!/^62[0-9]{8,14}$/.test(rawWa)) {
+          errBox.textContent = 'Nomor WhatsApp harus diawali 62 dan terdiri dari 10-16 digit angka.';
+          errBox.classList.remove('hidden');
+          showToast('Format nomor WhatsApp tidak valid.', true);
+          return null;
+        }
+
+        if (city.length < 3) {
+          errBox.textContent = 'Kota / Kecamatan wajib diisi minimal 3 karakter.';
+          errBox.classList.remove('hidden');
+          showToast('Kota / Kecamatan wajib diisi.', true);
+          return null;
+        }
+
+        if (address.length < 6) {
+          errBox.textContent = 'Alamat lengkap wajib diisi minimal 6 karakter.';
+          errBox.classList.remove('hidden');
+          showToast('Alamat lengkap wajib diisi.', true);
+          return null;
+        }
+
+        appState.shippingMethod = SHIPPING_RATES[shipKey] ? shipKey : 'regular';
+        var totals = computeCartTotals();
+        var orderId = 'UW-' + String(Date.now()).slice(-6);
+        var itemCount = appState.cart.reduce(function (s, it) { return s + it.qty; }, 0);
+
+        var lines = appState.cart.map(function (it, idx) {
+          var lineSum = it.price * it.qty;
+          return (idx + 1) + '. ' + it.name + ' [' + it.color + ' | ' + it.size + '] x' + it.qty + ' = ' + formatRp(lineSum);
+        });
+
+        var voucherLine = (appState.activeVoucher && VOUCHERS[appState.activeVoucher] && totals.discount > 0)
+          ? 'Diskon ' + VOUCHERS[appState.activeVoucher].label + ': -' + formatRp(totals.discount)
+          : 'Voucher: -';
+
+        var summaryText = [
+          'Order ID: ' + orderId,
+          'Halo *URBAN WEAR*, saya ingin konfirmasi pesanan:',
+          '',
+          '*DETAIL ITEM:*',
+          lines.join('\n'),
+          '',
+          'Subtotal: ' + formatRp(totals.subtotal),
+          voucherLine,
+          'Pengiriman (' + totals.shippingLabel + '): ' + (totals.shippingCost === 0 ? 'Gratis' : formatRp(totals.shippingCost)),
+          '*TOTAL BAYAR: ' + formatRp(totals.total) + '*',
+          '',
+          '*DATA PENERIMA:*',
+          'Nama: ' + buyerName,
+          'Kota/Kecamatan: ' + city,
+          'Alamat: ' + address,
+          note ? 'Catatan Kurir: ' + note : 'Catatan Kurir: -'
+        ].join('\n');
+
+        return {
+          orderId: orderId,
+          rawWa: rawWa,
+          buyerName: buyerName,
+          city: city,
+          itemCount: itemCount,
+          total: totals.total,
+          summaryText: summaryText
+        };
+      }
+
+      function submitWaCheckout() {
+        var payload = buildOrderPayload();
+        if (!payload) return;
+
+        var now = new Date();
+        var dateText = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
+
+        appState.orders.unshift({
+          orderId: payload.orderId,
+          dateText: dateText,
+          status: 'Dikirim ke WA',
+          buyerName: payload.buyerName,
+          city: payload.city,
+          itemCount: payload.itemCount,
+          total: payload.total,
+          summaryText: payload.summaryText
+        });
+        appState.orders = appState.orders.slice(0, 20);
+        saveArray(ORDERS_KEY, appState.orders);
+        renderOrdersHistory();
+
+        var waUrl = 'https://wa.me/' + payload.rawWa + '?text=' + encodeURIComponent(payload.summaryText);
+        var linkEl = document.createElement('a');
+        linkEl.href = waUrl;
+        linkEl.target = '_blank';
+        linkEl.rel = 'noopener noreferrer';
+        document.body.appendChild(linkEl);
+        linkEl.click();
+        document.body.removeChild(linkEl);
+
+        closeWaCheckoutModal();
+        showToast('Pesanan ' + payload.orderId + ' tersimpan & membuka WhatsApp.');
+      }
+
+      function initInteractions() {
+        document.querySelectorAll('.nav-cat-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setActiveCategory(btn.getAttribute('data-nav-cat'));
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        document.querySelectorAll('.filter-tab-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setActiveCategory(btn.getAttribute('data-filter'));
+          });
+        });
+
+        document.querySelectorAll('.mobile-cat-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setActiveCategory(btn.getAttribute('data-mobile-cat'));
+            document.getElementById('mobile-menu-backdrop').classList.add('hidden');
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        document.querySelectorAll('.footer-cat-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setActiveCategory(btn.getAttribute('data-footer-cat'));
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        var headerSearch = document.getElementById('header-search');
+        var catalogSearch = document.getElementById('catalog-search');
+
+        function syncSearch(val) {
+          var clean = sanitizeStr(val);
+          appState.query = clean;
+          headerSearch.value = clean;
+          catalogSearch.value = clean;
+          renderCatalog();
+        }
+
+        headerSearch.addEventListener('input', function (e) { syncSearch(e.target.value); });
+        catalogSearch.addEventListener('input', function (e) { syncSearch(e.target.value); });
+
+        document.getElementById('sort-select').addEventListener('change', function (e) {
+          appState.sort = e.target.value;
+          renderCatalog();
+        });
+
+        document.getElementById('quick-bestseller-btn').addEventListener('click', function () {
+          appState.onlyBestseller = !appState.onlyBestseller;
+          this.className = 'shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold border transition-colors ' +
+            (appState.onlyBestseller ? 'bg-[#FF5A1F] text-[#151515] border-[#FF5A1F]' : 'bg-[#1F1F1F] hover-bg-uw-elevated text-[#F2F0EB] border-[#2E2E2E]');
+          renderCatalog();
+        });
+
+        document.getElementById('quick-under300-btn').addEventListener('click', function () {
+          appState.maxPrice = appState.maxPrice === 300000 ? null : 300000;
+          this.className = 'shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold border transition-colors ' +
+            (appState.maxPrice ? 'bg-[#FF5A1F] text-[#151515] border-[#FF5A1F]' : 'bg-[#1F1F1F] hover-bg-uw-elevated text-[#F2F0EB] border-[#2E2E2E]');
+          renderCatalog();
+        });
+
+        function resetAllFilters() {
+          appState.query = '';
+          appState.onlyBestseller = false;
+          appState.maxPrice = null;
+          headerSearch.value = '';
+          catalogSearch.value = '';
+          document.getElementById('quick-bestseller-btn').className = 'shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold bg-[#1F1F1F] hover-bg-uw-elevated text-[#F2F0EB] border border-[#2E2E2E] transition-colors';
+          document.getElementById('quick-under300-btn').className = 'shrink-0 px-3.5 py-2 rounded-xl text-[11px] font-bold bg-[#1F1F1F] hover-bg-uw-elevated text-[#F2F0EB] border border-[#2E2E2E] transition-colors';
+          setActiveCategory('Semua');
+        }
+        document.getElementById('reset-filter-btn').addEventListener('click', resetAllFilters);
+        document.getElementById('empty-reset-btn').addEventListener('click', resetAllFilters);
+
+        document.getElementById('hero-featured-btn').addEventListener('click', function () {
+          openDetailModal(PRODUCTS[0]);
+        });
+
+        var lookbookModal = document.getElementById('lookbook-modal');
+        document.getElementById('open-lookbook-btn').addEventListener('click', function () {
+          lookbookModal.classList.remove('hidden');
+        });
+        document.getElementById('footer-lookbook-btn').addEventListener('click', function () {
+          lookbookModal.classList.remove('hidden');
+        });
+        document.getElementById('close-lookbook-btn').addEventListener('click', function () {
+          lookbookModal.classList.add('hidden');
+        });
+        lookbookModal.addEventListener('click', function (e) {
+          if (e.target === lookbookModal) lookbookModal.classList.add('hidden');
+        });
+
+        document.querySelectorAll('.lookbook-filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var q = sanitizeStr(btn.getAttribute('data-lookbook-query'));
+            lookbookModal.classList.add('hidden');
+            syncSearch(q);
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+            showToast('Menampilkan item lookbook: ' + q);
+          });
+        });
+
+        var sizechartModal = document.getElementById('sizechart-modal');
+        function openSizechart() { sizechartModal.classList.remove('hidden'); }
+        document.getElementById('open-sizechart-btn').addEventListener('click', openSizechart);
+        document.getElementById('footer-sizechart-btn').addEventListener('click', openSizechart);
+        document.getElementById('mobile-open-sizechart-btn').addEventListener('click', function () {
+          document.getElementById('mobile-menu-backdrop').classList.add('hidden');
+          openSizechart();
+        });
+        document.getElementById('close-sizechart-btn').addEventListener('click', function () {
+          sizechartModal.classList.add('hidden');
+        });
+        sizechartModal.addEventListener('click', function (e) {
+          if (e.target === sizechartModal) sizechartModal.classList.add('hidden');
+        });
+
+        var ordersModal = document.getElementById('orders-modal');
+        function openOrders() {
+          renderOrdersHistory();
+          ordersModal.classList.remove('hidden');
+        }
+        document.getElementById('open-orders-btn').addEventListener('click', openOrders);
+        document.getElementById('footer-orders-btn').addEventListener('click', openOrders);
+        document.getElementById('mobile-open-orders-btn').addEventListener('click', function () {
+          document.getElementById('mobile-menu-backdrop').classList.add('hidden');
+          openOrders();
+        });
+        document.getElementById('close-orders-btn').addEventListener('click', function () {
+          ordersModal.classList.add('hidden');
+        });
+        ordersModal.addEventListener('click', function (e) {
+          if (e.target === ordersModal) ordersModal.classList.add('hidden');
+        });
+
+        var mobileDrawer = document.getElementById('mobile-menu-backdrop');
+        document.getElementById('open-mobile-menu-btn').addEventListener('click', function () {
+          mobileDrawer.classList.remove('hidden');
+        });
+        document.getElementById('close-mobile-menu-btn').addEventListener('click', function () {
+          mobileDrawer.classList.add('hidden');
+        });
+        mobileDrawer.addEventListener('click', function (e) {
+          if (e.target === mobileDrawer) mobileDrawer.classList.add('hidden');
+        });
+
+        document.getElementById('copy-promo-btn').addEventListener('click', function () {
+          copyTextSafe('URBAN26', 'Kode voucher URBAN26 berhasil disalin.');
+        });
+
+        document.getElementById('close-product-modal').addEventListener('click', closeDetailModal);
+        document.getElementById('product-modal').addEventListener('click', function (e) {
+          if (e.target === this) closeDetailModal();
+        });
+
+        document.querySelectorAll('.detail-info-tab').forEach(function (tabBtn) {
+          tabBtn.addEventListener('click', function () {
+            appState.activeInfoTab = tabBtn.getAttribute('data-info-tab');
+            renderDetailInfoTab();
+          });
+        });
+
+        document.getElementById('modal-qty-minus').addEventListener('click', function () {
+          if (appState.selectedQty > 1) {
+            appState.selectedQty -= 1;
+            document.getElementById('modal-qty-value').textContent = String(appState.selectedQty);
+          }
+        });
+
+        document.getElementById('modal-qty-plus').addEventListener('click', function () {
+          var maxStock = appState.activeProduct ? (appState.activeProduct.stock || 20) : 20;
+          if (appState.selectedQty < maxStock) {
+            appState.selectedQty += 1;
+            document.getElementById('modal-qty-value').textContent = String(appState.selectedQty);
+          } else {
+            showToast('Stok maksimal ' + maxStock + ' unit.', true);
+          }
+        });
+
+        document.getElementById('modal-add-to-cart').addEventListener('click', function () {
+          if (!appState.activeProduct || !appState.selectedColor) return;
+          addToCart(appState.activeProduct, appState.selectedColor.name, appState.selectedSize, appState.selectedQty);
+          closeDetailModal();
+        });
+
+        document.getElementById('modal-toggle-wishlist').addEventListener('click', function () {
+          if (!appState.activeProduct) return;
+          toggleWishlist(appState.activeProduct.id);
+        });
+
+        var cartDrawer = document.getElementById('cart-drawer-backdrop');
+        document.getElementById('open-cart-btn').addEventListener('click', function () {
+          cartDrawer.classList.remove('hidden');
+        });
+        document.getElementById('footer-cart-btn').addEventListener('click', function () {
+          cartDrawer.classList.remove('hidden');
+        });
+        document.getElementById('close-cart-btn').addEventListener('click', function () {
+          cartDrawer.classList.add('hidden');
+        });
+        cartDrawer.addEventListener('click', function (e) {
+          if (e.target === cartDrawer) cartDrawer.classList.add('hidden');
+        });
+        document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+
+        document.getElementById('cart-shipping-select').addEventListener('change', function (e) {
+          appState.shippingMethod = SHIPPING_RATES[e.target.value] ? e.target.value : 'regular';
+          renderCart();
+        });
+
+        var wishDrawer = document.getElementById('wishlist-drawer-backdrop');
+        document.getElementById('open-wishlist-btn').addEventListener('click', function () {
+          wishDrawer.classList.remove('hidden');
+        });
+        document.getElementById('footer-wishlist-btn').addEventListener('click', function () {
+          wishDrawer.classList.remove('hidden');
+        });
+        document.getElementById('close-wishlist-btn').addEventListener('click', function () {
+          wishDrawer.classList.add('hidden');
+        });
+        wishDrawer.addEventListener('click', function (e) {
+          if (e.target === wishDrawer) wishDrawer.classList.add('hidden');
+        });
+
+        document.getElementById('apply-promo-btn').addEventListener('click', function () {
+          var code = sanitizeStr(document.getElementById('cart-promo-input').value).toUpperCase();
+          var msgEl = document.getElementById('promo-status-msg');
+          msgEl.classList.remove('hidden');
+
+          if (VOUCHERS[code]) {
+            appState.activeVoucher = code;
+            var pct = Math.round(VOUCHERS[code].rate * 100);
+            msgEl.textContent = 'Voucher ' + code + ' aktif — diskon ' + pct + '% diterapkan.';
+            msgEl.className = 'text-xs text-[#FF5A1F] font-bold';
+            renderCart();
+            showToast('Diskon ' + pct + '% (' + code + ') diterapkan.');
+          } else {
+            appState.activeVoucher = null;
+            msgEl.textContent = 'Kode tidak valid. Gunakan URBAN26 (15%) atau AMERIKA10 (10%).';
+            msgEl.className = 'text-xs text-red-400 font-semibold';
+            renderCart();
+          }
+        });
+
+        document.getElementById('open-wa-checkout-modal-btn').addEventListener('click', openWaCheckoutModal);
+        document.getElementById('close-wa-checkout-modal').addEventListener('click', closeWaCheckoutModal);
+        document.getElementById('wa-checkout-modal').addEventListener('click', function (e) {
+          if (e.target === this) closeWaCheckoutModal();
+        });
+        document.getElementById('wa-shipping-method').addEventListener('change', function (e) {
+          appState.shippingMethod = SHIPPING_RATES[e.target.value] ? e.target.value : 'regular';
+          document.getElementById('cart-shipping-select').value = appState.shippingMethod;
+          renderCart();
+          syncWaSummaryPreview();
+        });
+        document.getElementById('copy-wa-summary-btn').addEventListener('click', function () {
+          var payload = buildOrderPayload();
+          if (payload) {
+            copyTextSafe(payload.summaryText, 'Ringkasan pesanan berhasil disalin.');
+          }
+        });
+        document.getElementById('confirm-wa-send-btn').addEventListener('click', submitWaCheckout);
+      }
+
+      function initBackdropFallback() {
+        var bgImages = document.querySelectorAll('#american-style-bg img.american-bg-tile');
+        bgImages.forEach(function (tile) {
+          tile.addEventListener('error', function () {
+            tile.src = 'https://placehold.co/800x900/1F1F1F/2E2E2E?text=AMERICAN+STREET';
+          });
+        });
+      }
+
+      function startApp() {
+        initBackdropFallback();
+        initInteractions();
+        renderCatalog();
+        renderCart();
+        renderWishlist();
+        renderOrdersHistory();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startApp);
+      } else {
+        startApp();
+      }
+    })();
+  </script>
+</body>
+</html>
